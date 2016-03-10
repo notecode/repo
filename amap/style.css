@@ -1,0 +1,25 @@
+
+.marker {
+	width: 100px;
+	height: 100px;
+	background-color: #0FB9F2;
+	/* border-radius: 5px; */
+	border: 1px solid black;
+}
+
+.clk {
+	position: fixed;
+	top: 10px;
+	left: 100px;
+	width: 100px;
+	height: 20px;
+	background: blue;
+}
+
+.clk.out {
+	top: 40px;
+}
+
+.clk.pos {
+	top: 70px;
+}

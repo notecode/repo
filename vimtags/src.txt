@@ -1,0 +1,4 @@
+/Users/songerwei/workspace/github/datajs/common/
+/Users/songerwei/workspace/github/datajs/biz/wph/api/
+/Users/songerwei/workspace/github/datajs/biz/wph/plug/
+

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>经纬度坐标与地图容器像素坐标相互转换</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+	<script src="http://webapi.amap.com/maps?v=1.3&key=24a59ee2492ddf5fba6e8208f6383560"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<div class="button-group" style="background-color: white">
+    <div>
+        地图经纬度坐标：(<b>鼠标左键在地图上单击获取经纬度坐标</b>)<br>
+        lng：<input type="text" id="lngX" name="lngX" />
+		lat：<input type="text" id="latY" name="latY" /><br>
+		地图容器像素坐标：<br>
+		X：&nbsp;<input type="text" id="pixelx" name="pixelx" />
+		Y：&nbsp;<input type="text" id="pixely" name="pixely" />
+    </div>
+    <div style="margin-top:5px">
+        <input id="lng2x" type="button" class="button" value="经纬度转容器像素坐标" />
+        <input id="x2lng" type="button" class="button" value="容器像素坐标转经纬度" />
+    </div>
+</div>
+<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true
+    });
+
+    var $= function(elementId){
+        return document.getElementById(elementId);
+    };
+    var lngX = $('lngX'),latY = $('latY');
+    var pixelX = $('pixelx'),pixelY = $('pixely');
+    map.on( 'click',  function (e) {
+        lngX.value = e.lnglat.getLng();
+        latY.value = e.lnglat.getLat();
+    });
+
+    //经纬度坐标转换为容器像素坐标
+    AMap.event.addDomListener($('lng2x'),'click', function () {
+        var px = lngX.value,py = latY.value;
+        if (px && py) {
+            var pixel = map.lnglatTocontainer([px, py]);
+            pixelX.value = pixel.getX();
+            pixelY.value = pixel.getY();
+        }
+    });
+
+    //容器像素坐标转换为经纬度坐标
+    AMap.event.addDomListener($('x2lng'),'click', function () {
+        var lnglatX = parseInt(pixelX.value), lnglatY = parseInt(pixelY.value);
+        if (lnglatX && lnglatY) {
+            var ll = map.containTolnglat(new AMap.Pixel(lnglatX, lnglatY));
+            lngX.value = ll.getLng();
+            latY.value = ll.getLat();
+        }
+    });
+</script>
+</body>
+</html>

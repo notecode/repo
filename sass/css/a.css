@@ -1,0 +1,29 @@
+/* 1. var */
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333; }
+
+p {
+  color: red; }
+
+/* nesting */
+div i,
+.some-outter i {
+  display: none; }
+
+div p,
+.some-outter p {
+  color: blue; }
+  div p h2,
+  .some-outter p h2 {
+    font-size: 14px; }
+
+/* partials */
+.from-part {
+  color: red; }
+
+.from-part2 {
+  font-size: 12px; }
+
+.from-part3 {
+  font-size: 12px; }

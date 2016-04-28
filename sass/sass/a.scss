@@ -1,0 +1,38 @@
+
+/* 1. var */
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+	font: 100% $font-stack;
+	color: $primary-color;
+}
+
+p {
+	color: red;
+}
+
+/* nesting */
+
+div,
+.some-outter {
+	i {
+		display: none;
+	}
+
+	p {
+		color: blue;
+
+		h2 {
+			font-size: 14px;
+		}
+	}
+}
+
+/* partials */
+
+@import 'part';
+@import 'part2';
+@import 'part3';
+

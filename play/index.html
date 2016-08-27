@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+        <style>
+            button {
+                width: 100px;
+                height: 50px;
+            }
+
+        </style>
+	</head>
+	<body>
+        <button id='it'>xx</button>
+        <button id='act'>click</button>
+        <script src="../lib/jquery.js"></script>
+
+        <script>
+            $(function() {
+                $('#act').click(function(){
+                    var b = $('#it').prop('disabled');
+                    $('#it').prop('disabled', !b);
+                    $('#it').text(b?'enable':'disable');
+                }); 
+
+                $('#it').click(function() {
+                    console.log('clicked me');
+                })
+            })
+        </script>
+	</body>
+</html>
+

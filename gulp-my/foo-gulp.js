@@ -26,6 +26,11 @@ function gulpPrefixer(prefixText) {
       // return empty file
       return cb(null, file);
     }
+
+	console.log('Path: ' + file.path);
+	console.log('File is ' + (file.isBuffer() ? 'buffer':'stream'));
+	console.log('Content: ' + file.contents);
+
     if (file.isBuffer()) {
       file.contents = Buffer.concat([prefixText, file.contents]);
     }

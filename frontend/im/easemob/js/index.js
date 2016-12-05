@@ -1,8 +1,8 @@
 $(function () {
   tlog('hello');
 
-  initIM();
-  initOps();
+  var conn = initIM();
+  initOps(conn);
 })
 
 function initIM() {
@@ -20,11 +20,15 @@ function initIM() {
       // 则无需调用conn.setPresence();             
 
       tlog(message);
+      conn.setPresence();             
     },  
     onClosed: function ( message ) {},         //连接关闭回调
     onTextMessage: function ( message ) {
-      tlog(message);
+      var msg = message.data;
+      tlog(msg);
+      $('<p>' + msg + '</p>').appendTo($('body'));
     }, 
+
     onEmojiMessage: function ( message ) {},   //收到表情消息
     onPictureMessage: function ( message ) {}, //收到图片消息
     onCmdMessage: function ( message ) {},     //收到命令消息
@@ -49,8 +53,22 @@ function initIM() {
 
   tlog('User: ' + options.user);
   conn.open(options);
+  return conn;
 }
 
-function initOps() {
-  
+function initOps(conn) {
+  $('#send').click(function() {
+    var id = conn.getUniqueId();                 // 生成本地消息id
+    var msg = new WebIM.message('txt', id);      // 创建文本消息
+    msg.set({
+      msg: $('#msg').val() || 'haha',
+      to: qs('to') || 'NoteCode2',
+      roomType: false,
+      success: function (id, serverMsgId) {
+        console.log("send private text Success");
+      }
+    });
+    msg.body.chatType = 'singleChat';
+    conn.send(msg.body);
+  });
 }

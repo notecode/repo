@@ -28,28 +28,38 @@ function initIM() {
 
   var tok = {
     user1: '3QB5iLhybnC5zJT8052/A9U7kI3mBcmOiWDFKS4Ab/vw71wuQLCBi7u1L3iFefhI7+88uVgHWGq5Ne+w8w5x3Q==',
-    user2: 'vdVzNl8nUznEww+MPdMo79U7kI3mBcmOiWDFKS4Ab/ssYm8kSd7VPEDLKffBWzIscwWcUOiZ5065Ne+w8w5x3Q=='
+    user2: 'vdVzNl8nUznEww+MPdMo79U7kI3mBcmOiWDFKS4Ab/ssYm8kSd7VPEDLKffBWzIscwWcUOiZ5065Ne+w8w5x3Q==',
+    user3: 'bI7jcJxAAm/CnncQ3rPZF9U7kI3mBcmOiWDFKS4Ab/ssYm8kSd7VPFG3Tm1ZuT7c3A5Yt5i4SYy5Ne+w8w5x3Q=='
   }
 
-  im_load(o.appKey, tok[qs('user') || 'user1'], {
-    on_text_msg: function(msg) {
-      var p = $('<p>' + msg + '</p>')
-      p.appendTo($('.msg'))
-    },
+  var me = qs('user') || 'user1';
+  $('#' + me).find('.send').attr('disabled', true);
+  $('#' + me).find('.msg').val('不能给自己发消息~~');
+  $('#cur-user').text('I am ' + me);
+
+  im_load(o.appKey, tok[me], {
     connected: function() {
-      // im_send_msg_to_kefu("how are you", o.kefu_id)
     },
-    on_text_msg: function (msg) {
-      $('<p>' + msg + '</p>').appendTo($('body'));
+    on_private_text_msg: function (msg, to, from) {
+      var recv = $('#user' + to).find('.recv');
+      $('<p>' + msg + '</p>').appendTo(recv);
+    },
+    on_group_text_msg: function (msg, to, from) {
+      var recv = $('#group' + to).find('.recv');
+      $('<p>user' + from + ' said: ' + msg + '</p>').appendTo(recv);
     }
   })
 }
 
 function initOps() {
-  $('#send').click(function () {
-    var msg = $('#msg').val();
-    var me = qs('user') || 'user1';
-    var to = (me == 'user1') ? '2' : '1';
-    im_send_msg(to, msg);
-  })
+  $('.send').click(function () {
+    var msg = $(this).siblings('.msg').val();
+    var parent = $(this).parent();
+    var toID = parent.attr('rongID');
+    if (parent.attr('id').indexOf('user') >= 0) {
+      im_send_private_msg(toID, msg); 
+    } else {
+      im_send_group_msg(toID, msg); 
+    }
+  });
 }

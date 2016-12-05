@@ -4,9 +4,23 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>RongCloud demo</title>
+        <style>
+            h3 {
+                margin: 5px;
+            }
+            .frame {
+                border: 1px solid blue;
+                margin: 2px;
+            }
+
+            #cur-user {
+                color: blue;
+            }
+        </style>
+
 	</head>
 	<body>			
-        <h2>融云Demo</h2>
+        <h2>融云Demo <span id="cur-user"></span></h2>
 		<script src="vendor/jquery.js"></script>
 		<script src="vendor/my-utils.js"></script>
 		<script src="vendor/RongIMLib-2.2.4.min.js"></script>
@@ -14,7 +28,32 @@
 		<script src="js/im.js"></script>
 		<script src="js/index.js"></script>
 
-	    <input id="msg" type="text"></input>
-        <button id="send">Send</button>
+        <div id="user1" rongId="1" class='frame'>
+            <h3>user1</h3>
+            <input class="msg" type="text"></input>
+            <button class="send">Send</button>
+            <div class="recv"></div>
+        </div>
+
+        <div id="user2" rongId="2" class='frame'>
+            <h3>user2</h3>
+            <input class="msg" type="text"></input>
+            <button class="send">Send</button>
+            <div class="recv"></div>
+        </div>
+
+        <div id="user3" rongId="3" class='frame'>
+            <h3>user3</h3>
+            <input class="msg" type="text"></input>
+            <button class="send">Send</button>
+            <div class="recv"></div>
+        </div>
+
+        <div id="group101" rongId="101" class='frame'>
+            <h3>group101</h3>
+            <input class="msg" type="text"></input>
+            <button class="send">Send</button>
+            <div class="recv"></div>
+        </div>
 	</body>
 </html>

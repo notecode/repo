@@ -116,11 +116,18 @@ function im_set_recv_msg_listener(cb) {
             // 判断消息类型
             switch(message.messageType){
                 case RongIMClient.MessageType.TextMessage:
-					var t = message.content.content;
-		 			console.log('im recv: ' + t)
-					if (cb.on_text_msg != undefined) {
-						cb.on_text_msg(t)
-					}
+                    var t = message.content.content;
+                    console.log('im recv(from: ' + message.senderUserId + '): ' + t);
+
+                    if (message.conversationType == RongIMLib.ConversationType.PRIVATE) {
+                      if (cb.on_private_text_msg) {
+                        cb.on_private_text_msg(t, message.targetId, message.senderUserId);
+                      }
+                    } else if (message.conversationType == RongIMLib.ConversationType.GROUP) {
+                      if (cb.on_group_text_msg) {
+                        cb.on_group_text_msg(t, message.targetId, message.senderUserId);
+                      }
+                    }
                     break;
                 case RongIMClient.MessageType.ImageMessage:
                     // do something...
@@ -178,13 +185,21 @@ function im_send_msg_to_kefu(text, kefu_id) {
 	}); 
 } 
 
-function im_send_msg(toID, text) {
+function im_send_private_msg(toID, text) {
+  _im_send_msg(toID, text, RongIMLib.ConversationType.PRIVATE)
+}
+
+function im_send_group_msg(toID, text) {
+  _im_send_msg(toID, text, RongIMLib.ConversationType.GROUP);
+}
+
+function _im_send_msg(toID, text, toType) {
   // 定义消息类型,文字消息使用 RongIMLib.TextMessage
   var msg = new RongIMLib.TextMessage({content: text, extra: "附加信息"});
   //或者使用RongIMLib.TextMessage.obtain 方法.具体使用请参见文档
   //var msg = RongIMLib.TextMessage.obtain("hello");
 
-	RongIMClient.getInstance().sendMessage(RongIMLib.ConversationType.PRIVATE, toID, msg, {
+	RongIMClient.getInstance().sendMessage(toType, toID, msg, {
 		onSuccess: function () {
 			console.log("Send successfully");
 		},

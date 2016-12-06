@@ -4,7 +4,8 @@
 
 function im_load(key, token, cb) {
 	var ccb = (cb != undefined) ? cb : {}
-	RongIMClient.init(key)
+	RongIMClient.init(key);
+	//RongIMClient.init(key, new RongIMLib.WebSQLDataProvider());
 
 	im_set_connecting_listener()
 	im_set_recv_msg_listener(ccb)
@@ -74,9 +75,6 @@ function im_connect_server(token, cb) {
 }
 
 function im_set_connecting_listener() {
-
-	// 设置连接监听状态 （ status 标识当前连接状态）
-    // 连接状态
     RongIMClient.setConnectionStatusListener({
         onChanged: function (status) {
             switch (status) {
@@ -104,7 +102,7 @@ function im_set_connecting_listener() {
 				case RongIMLib.ConnectionStatus.BLOCK:
 					break;
             }
-		}
+		  }
 	});
 }
 
@@ -117,7 +115,7 @@ function im_set_recv_msg_listener(cb) {
             switch(message.messageType){
                 case RongIMClient.MessageType.TextMessage:
                     var t = message.content.content;
-                    console.log('im recv(from: ' + message.senderUserId + '): ' + t);
+                    console.log('im recv(from: ' + message.senderUserId + '): ' + t + (message.offLineMessage ? ', [offline msg]' : ''));
 
                     if (message.conversationType == RongIMLib.ConversationType.PRIVATE) {
                       if (cb.on_private_text_msg) {
@@ -233,3 +231,28 @@ function _im_send_msg(toID, text, toType) {
 	});
 }
 
+function im_get_private_history_msg(withID, cb) {
+  _im_get_history_msg(RongIMLib.ConversationType.PRIVATE, withID, cb); 
+}
+
+function im_get_group_history_msg(groupID, cb) {
+  _im_get_history_msg(RongIMLib.ConversationType.GROUP, groupID, cb); 
+}
+
+function _im_get_history_msg(convType, withID, cb) {
+  var conversationType = RongIMLib.ConversationType.PRIVATE; //私聊,其他会话选择相应的消息类型即可。
+  var targetId = "xxx"; // 想获取自己和谁的历史消息，targetId 赋值为对方的 Id。
+  var timestrap = null; // 默认传 null，若从头开始获取历史消息，请赋值为 0 ,timestrap = 0;
+  var count = 20; // 每次获取的历史消息条数，范围 0-20 条，可以多次获取。
+  RongIMLib.RongIMClient.getInstance().getHistoryMessages(convType, withID, null, 10, {
+    onSuccess: function(list, hasMsg) {
+      // list => Message 数组。
+      // hasMsg => 是否还有历史消息可以获取。
+      tlog('history msg count(with ' + withID + '): ' + list.length);
+      cb && cb.succ(list, hasMsg);
+    },
+    onError: function(error) {
+      console.log("GetHistoryMessages,errorcode:" + error);
+    }
+  });
+}

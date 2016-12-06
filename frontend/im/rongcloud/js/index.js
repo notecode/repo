@@ -62,4 +62,34 @@ function initOps() {
       im_send_group_msg(toID, msg); 
     }
   });
+
+  $('.history').click(function() {
+    var parent = $(this).parent();
+    var toID = parent.attr('rongID');
+    var get_msg;
+    if (parent.attr('id').indexOf('user') >= 0) {
+      get_msg = im_get_private_history_msg;
+    } else {
+      get_msg = im_get_group_history_msg;
+    }
+
+    get_msg(toID, {
+      succ: function(list, hasMsg) {
+        var recv = parent.find('.recv');
+        if (list.length > 0) {
+          for (var i = 0; i < list.length; i++) {
+            var msg = list[i].content.content;
+            $('<p>' + msg + '</p>').appendTo(recv);
+          }
+          $('<p>-----above is history------</p>').appendTo(recv);
+        } else {
+          $('<p>-----no history msg------</p>').appendTo(recv);
+        }
+      } 
+    })
+  })
+
+  $('#all-history').click(function () {
+    $('.history').trigger('click');
+  })
 }

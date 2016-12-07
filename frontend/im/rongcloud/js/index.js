@@ -65,6 +65,11 @@ function initOps() {
 
   $('.history').click(function() {
     var parent = $(this).parent();
+    if (parent.find('#no-more-history').length > 0) {
+      tlog('no more history');
+      return;
+    }
+
     var toID = parent.attr('rongID');
     var get_msg;
     if (parent.attr('id').indexOf('user') >= 0) {
@@ -84,6 +89,10 @@ function initOps() {
           $('<p>-----above is history------</p>').appendTo(recv);
         } else {
           $('<p>-----no history msg------</p>').appendTo(recv);
+        }
+
+        if (!hasMsg) {
+          $('<span id="no-more-history"></span>').appendTo(parent);
         }
       } 
     })

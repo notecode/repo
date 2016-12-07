@@ -29,10 +29,10 @@ function im_connect_server(token, cb) {
 			// 此处处理连接错误。
 			var info = '';
 			switch (errorCode) {
-			   case RongIMClient.callback.ErrorCode.TIMEOUT:
+			   case RongIMClient.ErrorCode.TIMEOUT:
 					info = '超时';
 					break;
-			   case RongIMClient.callback.ErrorCode.UNKNOWN_ERROR:
+			   case RongIMClient.ErrorCode.UNKNOWN_ERROR:
 					info = '未知错误';
 					break;
 			   case RongIMClient.ConnectErrorStatus.UNACCEPTABLE_PROTOCOL_VERSION:
@@ -184,10 +184,12 @@ function im_send_msg_to_kefu(text, kefu_id) {
 } 
 
 function im_send_private_msg(toID, text) {
+  tlog('send msg to user(id:' + toID + '): ' + text);
   _im_send_msg(toID, text, RongIMLib.ConversationType.PRIVATE)
 }
 
 function im_send_group_msg(toID, text) {
+  tlog('send msg to group(id:' + toID + '): ' + text);
   _im_send_msg(toID, text, RongIMLib.ConversationType.GROUP);
 }
 
@@ -204,29 +206,29 @@ function _im_send_msg(toID, text, toType) {
 		onError: function (errorCode) {
 			var info = '';
 			switch (errorCode) {
-				case RongIMLib.callback.ErrorCode.TIMEOUT:
+				case RongIMLib.ErrorCode.TIMEOUT:
 					info = '超时';
 					break;
-				case RongIMLib.callback.ErrorCode.UNKNOWN_ERROR:
+				case RongIMLib.ErrorCode.UNKNOWN_ERROR:
 					info = '未知错误';
 					break;
-				case RongIMLib.SendErrorStatus.REJECTED_BY_BLACKLIST:
+				case RongIMLib.ErrorCode.REJECTED_BY_BLACKLIST:
 					info = '在黑名单中，无法向对方发送消息';
 					break;
-				case RongIMLib.SendErrorStatus.NOT_IN_DISCUSSION:
+				case RongIMLib.ErrorCode.NOT_IN_DISCUSSION:
 					info = '不在讨论组中';
 					break;
-				case RongIMLib.SendErrorStatus.NOT_IN_GROUP:
+				case RongIMLib.ErrorCode.NOT_IN_GROUP:
 					info = '不在群组中';
 					break;
-				case RongIMLib.SendErrorStatus.NOT_IN_CHATROOM:
+				case RongIMLib.ErrorCode.NOT_IN_CHATROOM:
 					info = '不在聊天室中';
 					break;
 				default :
 					info = x;
 					break;
 			}
-			console.alert('发送失败:' + info);
+			alert('发送失败:' + info);
 		}
 	});
 }
@@ -244,7 +246,7 @@ function _im_get_history_msg(convType, withID, cb) {
   var targetId = "xxx"; // 想获取自己和谁的历史消息，targetId 赋值为对方的 Id。
   var timestrap = null; // 默认传 null，若从头开始获取历史消息，请赋值为 0 ,timestrap = 0;
   var count = 20; // 每次获取的历史消息条数，范围 0-20 条，可以多次获取。
-  RongIMLib.RongIMClient.getInstance().getHistoryMessages(convType, withID, null, 10, {
+  RongIMLib.RongIMClient.getInstance().getHistoryMessages(convType, withID, null, 20, {
     onSuccess: function(list, hasMsg) {
       // list => Message 数组。
       // hasMsg => 是否还有历史消息可以获取。

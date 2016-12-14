@@ -1,0 +1,16 @@
+
+<div *ngFor="let bid of bidsList" class="">
+	<a href="./demand.html?demand_id={{bid.demand_id}}&from=1" class="clearfix">
+		<div class="inline div1">
+			<div class="status sta">洽谈中</div>
+			<div class="time">{{bid.intm}}</div>
+		</div>
+		<div class="inline div2">
+            <div class="info"> <span class="name">{{bid.nick}}</span> <span class="center over">{{bid.span}} / {{bid.budget}} / {{bid.color}}</span></div>
+			<!-- <div class="lineH"><span class="icon-crowd margin"></span>{{supplier}}</div> -->
+		</div>
+		<div class="inline type">
+			<span class="center">门头<br/>招牌</span>
+		</div>
+	</a>
+</div>

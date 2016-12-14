@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { BidsListService } from './bids-list.serv';
 
 @Component({
@@ -14,6 +13,9 @@ export class InviteBidsComponent implements OnInit {
 	constructor(private serv: BidsListService) {}
 
 	ngOnInit(): void {
-		this.serv.getMockBidsList().then(json => this.bidsList = json.list);
+    var _this = this;
+    this.serv.getBidsList().then(function(json) {
+       _this.bidsList = json.list;
+    });
 	}
 }

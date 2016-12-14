@@ -7,6 +7,7 @@ link-checker-results.txt
 
 app/**/*.js
 app/components/**/*.css
+app/g-sass/**/*.css
 
 e2e/**/*.js
 e2e/**/*.js.map

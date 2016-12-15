@@ -1,0 +1,29 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": [
+				"*.log", 
+				"*.md",
+				"*.swp",
+				".*",
+
+				"app/*.js*",
+				"app/*.css",
+			]
+		},
+		{
+			"path": "./app",
+			"file_exclude_patterns": [
+				"*.log", 
+				"*.md", 
+				"*.swp",
+
+				"*.js*",
+				"*.css",
+			]
+		}
+	],
+
+}

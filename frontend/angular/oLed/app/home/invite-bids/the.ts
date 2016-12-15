@@ -3,8 +3,8 @@ import { BidsListService } from './bids-list.serv';
 
 @Component({
   selector: 'invite-bids',
-  templateUrl: './app/components/invite-bids/the.html',
-  styleUrls: ['./app/components/invite-bids/the.css'],
+  templateUrl: './app/home/invite-bids/the.html',
+  styleUrls: ['./app/home/invite-bids/the.css'],
   providers: [BidsListService]
 })
 export class InviteBidsComponent implements OnInit {

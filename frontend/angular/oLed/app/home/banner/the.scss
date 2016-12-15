@@ -3,7 +3,7 @@
   .publish {
     margin-top:.48rem;
     width:100%;
-    background: url('./app/components/banner/images/bidbg3.jpg') center top no-repeat;
+    background: url('./app/home/banner/images/bidbg3.jpg') center top no-repeat;
     background-size: auto 4rem;
     color:#4785F9;
     height:4rem;
@@ -17,7 +17,7 @@
       width:100%;
       text-align:center;
       line-height:.41rem;
-      background: url('./app/components/banner/images/logo1.png') no-repeat center 0.58rem;
+      background: url('./app/home/banner/images/logo1.png') no-repeat center 0.58rem;
       background-size:1.725rem .41rem;
     }
     .pContent {
@@ -128,14 +128,14 @@
       bottom: -0.08rem;
       left: 18%;
       margin-left: -0.06rem;
-      background: url('./app/components/banner/images/down-horn2.png') no-repeat;
+      background: url('./app/home/banner/images/down-horn2.png') no-repeat;
       background-size: cover;
     }
   }
   .upMore,.downMore {
     width:100%;
     height:.7rem;
-    background:url('./app/components/banner/images/loading.gif') no-repeat center;
+    background:url('./app/home/banner/images/loading.gif') no-repeat center;
     background-size:.6rem .1rem;
   }
   #first {

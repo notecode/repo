@@ -34,7 +34,6 @@ export class BidsListService {
 					_uptm: "1481713205",
 					intm: "2016-12-14T18:55:44",
 					uptm: "2016-12-14T19:00:05",
-					supplier_list: [ ]
 				},
 			]
 		};

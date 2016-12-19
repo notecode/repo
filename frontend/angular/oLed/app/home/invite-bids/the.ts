@@ -14,8 +14,7 @@ export class InviteBidsComponent implements OnInit {
 
 	ngOnInit(): void {
     var _this = this;
-    //this.serv.getBidsList().then(function(json) {
-    this.serv.getMockBidsList().then(function(json) {
+    this.serv.getBidsList().then(function(json) {
        _this.bidsList = json.list;
     });
 	}
@@ -33,5 +32,12 @@ export class InviteBidsComponent implements OnInit {
       default:
         return '不明';
     }
+  }
+
+  loadMore(): void {
+    var _this = this;
+    this.serv.getBidsList().then(function(json) {
+       _this.bidsList = _this.bidsList.concat(json.list);
+    });
   }
 }

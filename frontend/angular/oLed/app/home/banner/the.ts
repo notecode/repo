@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './app/home/banner/the.html',
   styleUrls: ['./app/home/banner/the.css'],
 })
-export class BannerComponent  { name = 'Banner'; }
+export class BannerComponent  {
+	showCounts = true;
+
+	toggleShow(): void {
+		this.showCounts = !this.showCounts;
+	}
+}

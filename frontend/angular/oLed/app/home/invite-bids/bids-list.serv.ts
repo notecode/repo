@@ -8,7 +8,12 @@ export class BidsListService {
 
 	constructor(private http: Http) {  }
 
-	getMockBidsList(): Promise<any> {
+	getBidsList(): Promise<any> {
+		return this._getMockBidsList();
+		//return this._getBidsList();
+	}
+
+	_getMockBidsList(): Promise<any> {
 		var mockData = {
 			succ: "1",
 			msg: "Success",
@@ -40,7 +45,7 @@ export class BidsListService {
 		return Promise.resolve(mockData);
 	}
 
-	getBidsList(): Promise<any> {
+	_getBidsList(): Promise<any> {
 		var _this = this;
 		var url = "http://api.xxtao.com/index.php?r=demand%2Fb38&city_id=151&pagesize=20&sort_max=&sort_min=&sort=demand_id";
 		return this.http.get(url)
@@ -51,4 +56,3 @@ export class BidsListService {
                .catch(() => console.log('http error'));	
 	}
 }
-

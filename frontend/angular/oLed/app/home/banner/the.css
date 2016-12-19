@@ -43,102 +43,89 @@
   height: 4rem;
   display: block;
   text-align: center; }
-
-.publish .pTitle {
-  height: .99rem;
-  width: 1.725rem;
-  font-size: .41rem;
-  margin: 0 0 .25rem 0;
-  width: 100%;
-  text-align: center;
-  line-height: .41rem;
-  background: url("./app/home/banner/images/logo1.png") no-repeat center 0.58rem;
-  background-size: 1.725rem .41rem; }
-
-.publish .pContent {
-  width: 100%;
-  text-align: center;
-  font-size: .42rem;
-  margin: 0 auto;
-  line-height: .24rem;
-  color: #fff;
-  padding-top: 0.51rem; }
-
-.publish .pcompany {
-  margin: 0;
-  font-size: 0.14rem;
-  color: #fff;
-  padding-top: .22rem; }
-
-.publish .pbusiness {
-  width: 100%;
-  margin-top: 0.53rem; }
-
-.publish .pbusiness .pb-area {
-  width: 1.3rem;
-  height: 0.7rem;
-  display: inline-block;
-  margin: 0 0.1rem;
-  position: relative; }
-
-.publish .pbusiness .pb-area .pb-col {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: #2d4d87;
-  border: 1px solid #a3c2fc;
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  border-radius: 2px; }
-
-.publish .pbusiness .pb-area cite {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  font-style: normal; }
-
-.publish .pbusiness .pb-area span {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 0.12rem;
-  color: #fff;
-  padding-top: 0.13rem; }
-
-.publish .pbusiness .pb-area em {
-  display: block;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 0.24rem;
-  font-style: normal;
-  line-height: 0.24rem;
-  margin-top: 0.03rem; }
-
-.publish .icon-go {
-  font-size: 0.14rem;
-  vertical-align: -1px;
-  margin-left: 0.08rem; }
-
-.publish .pFCount {
-  font-size: 0.24rem; }
-
-.publish .pFujin {
-  width: 1.66rem;
-  margin: 0 auto;
-  line-height: 0.22rem;
-  font-size: 0.14rem;
-  color: #fff;
-  padding-top: 0.25rem; }
-
-.publish .pBtn {
-  width: 1.8rem;
-  margin: .79rem auto 0 auto;
-  text-align: center;
-  position: relative; }
+  .publish .pTitle {
+    height: .99rem;
+    width: 1.725rem;
+    font-size: .41rem;
+    margin: 0 0 .25rem 0;
+    width: 100%;
+    text-align: center;
+    line-height: .41rem;
+    background: url("./app/home/banner/images/logo1.png") no-repeat center 0.58rem;
+    background-size: 1.725rem .41rem; }
+  .publish .pContent {
+    width: 100%;
+    text-align: center;
+    font-size: .42rem;
+    margin: 0 auto;
+    line-height: .24rem;
+    color: #fff;
+    padding-top: 0.51rem; }
+  .publish .pcompany {
+    margin: 0;
+    font-size: 0.14rem;
+    color: #fff;
+    padding-top: .22rem; }
+  .publish .pbusiness {
+    width: 100%;
+    margin-top: 0.53rem; }
+    .publish .pbusiness .pb-area {
+      width: 1.3rem;
+      height: 0.7rem;
+      display: inline-block;
+      margin: 0 0.1rem;
+      position: relative; }
+      .publish .pbusiness .pb-area .pb-col {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #2d4d87;
+        border: 1px solid #a3c2fc;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        border-radius: 2px; }
+      .publish .pbusiness .pb-area cite {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        font-style: normal; }
+      .publish .pbusiness .pb-area span {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 0.12rem;
+        color: #fff;
+        padding-top: 0.13rem; }
+      .publish .pbusiness .pb-area em {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 0.24rem;
+        font-style: normal;
+        line-height: 0.24rem;
+        margin-top: 0.03rem; }
+  .publish .icon-go {
+    font-size: 0.14rem;
+    vertical-align: -1px;
+    margin-left: 0.08rem; }
+  .publish .pFCount {
+    font-size: 0.24rem; }
+  .publish .pFujin {
+    width: 1.66rem;
+    margin: 0 auto;
+    line-height: 0.22rem;
+    font-size: 0.14rem;
+    color: #fff;
+    padding-top: 0.25rem; }
+  .publish .pBtn {
+    width: 1.8rem;
+    margin: .79rem auto 0 auto;
+    text-align: center;
+    position: relative; }
 
 .btn-bao {
   position: absolute;
@@ -149,19 +136,18 @@
   left: 0.30rem;
   font-size: 0.12rem;
   border-radius: 20px; }
-
-.btn-bao:before {
-  content: "";
-  width: 0.26rem;
-  height: 0.125rem;
-  background-color: #fff;
-  float: left;
-  position: absolute;
-  bottom: -0.08rem;
-  left: 18%;
-  margin-left: -0.06rem;
-  background: url("./app/home/banner/images/down-horn2.png") no-repeat;
-  background-size: cover; }
+  .btn-bao:before {
+    content: "";
+    width: 0.26rem;
+    height: 0.125rem;
+    background-color: #fff;
+    float: left;
+    position: absolute;
+    bottom: -0.08rem;
+    left: 18%;
+    margin-left: -0.06rem;
+    background: url("./app/home/banner/images/down-horn2.png") no-repeat;
+    background-size: cover; }
 
 .upMore, .downMore {
   width: 100%;

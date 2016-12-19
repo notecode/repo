@@ -14,8 +14,24 @@ export class InviteBidsComponent implements OnInit {
 
 	ngOnInit(): void {
     var _this = this;
-    this.serv.getBidsList().then(function(json) {
+    //this.serv.getBidsList().then(function(json) {
+    this.serv.getMockBidsList().then(function(json) {
        _this.bidsList = json.list;
     });
 	}
+
+  stdTime(intm): string {
+    return intm.substring(0, 10);
+  }
+
+  stdType(type): string {
+    switch (type) {
+      case "0":
+        return '门头招牌';
+      case "1":
+        return '广告';
+      default:
+        return '不明';
+    }
+  }
 }

@@ -1,13 +1,11 @@
-function greeter(person: string) {
-	var foo = new Foo();
-    return "Hello, " + person + foo.bar();
-}
+import { join, chunk } from 'lodash/array';
 
 class Foo {
 	bar(): string {
-		return 'bar';
+		var a = join([1, 2], ['a', 'b']);
+		return 'Hello, I am from Typescript.';
 	}
 }
 
-var user = "赵 ";
-document.body.innerHTML = greeter(user);    
+var foo = new Foo();
+document.body.innerHTML = foo.bar();    

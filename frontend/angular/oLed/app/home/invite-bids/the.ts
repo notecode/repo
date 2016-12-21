@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { BidsListService } from './bids-list.serv';
 
 @Component({
@@ -9,6 +9,7 @@ import { BidsListService } from './bids-list.serv';
 })
 export class InviteBidsComponent implements OnInit {
 	bidsList = [];
+  cnt = 0;
 
 	constructor(private serv: BidsListService) {}
 
@@ -39,5 +40,12 @@ export class InviteBidsComponent implements OnInit {
     this.serv.getBidsList().then(function(json) {
        _this.bidsList = _this.bidsList.concat(json.list);
     });
+  }
+
+  @HostListener('document:scroll') onScroll() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      console.log('bottomed, load more ' + this.cnt++);
+      this.loadMore();
+    }
   }
 }

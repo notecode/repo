@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+	</head>
+	<body>
+        <div id="output"></div>
+        <script src="mustache.js"></script>
+        <script>
+            var data = [
+                {
+                    name: 'Jim',
+                    age: '12',
+                    sex: '1',
+                    toys: ['a', 'b', 'c', 'd']
+                },
+                {
+                    name: 'Lily',
+                    age: '11',
+                    sex: '0',
+                    toys: ['a', 'b', 'c']
+                },
+                {
+                    name: 'Lucy',
+                    age: '11',
+                    sex: '0',
+                    toys: ['a', 'b']
+                }
+            ];
+
+            var util = {
+                echo_sex: function() {
+                    return (this.sex === '1') ? 'he is a boy' : 'she is a girl';
+                },
+                foo: function() {
+                    return 'hehe';
+                },
+                toy_cnt: function() {
+                    return this.toys.length;
+                }
+            }
+            var tpl = '<ul>' +
+                        '{{#data}}' +
+                        '<li>{{name}} is {{age}}, {{util.echo_sex}}, has {{util.toy_cnt}} toys</li>' +
+                        '{{/data}}' +
+                        '</ul>' + 
+                        '<p>{{util.foo}} {{data.length}}</p>';
+            var html = Mustache.render(tpl, {data: data, util: util});
+            document.getElementById('output').innerHTML = html;
+        </script>
+	</body>
+</html>
+

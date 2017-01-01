@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <style>
+
+            .button {
+              position: relative;
+              overflow: hidden;
+              display: inline-block;
+            }
+            .button input {
+                position: absolute;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                opacity: 0;
+                -ms-filter: 'alpha(opacity=0)';
+                font-size: 200px !important;
+                direction: ltr;
+                cursor: pointer;
+            }
+        </style>
+	</head>
+	<body>
+        <span class="button">
+            upload
+            <input id="fileupload" type="file" name="pic">
+        </span>
+        <div id="files" class="files"></div>
+
+        <script src="./vendor/jquery.js"></script>
+        <script src="./vendor/jquery.ui.widget.js"></script>
+        <script src="./vendor/jquery.fileupload.js"></script>
+
+        <script src="./vendor/load-image/load-image.js"></script>
+        <script src="./vendor/load-image/load-image-meta.js"></script>
+        <script src="./vendor/load-image/load-image-exif.js"></script>
+        <script src="./vendor/load-image/load-image-orientation.js"></script>
+
+        <script src="./vendor/jquery.fileupload-process.js"></script>
+        <script src="./vendor/jquery.fileupload-image.js"></script>
+
+        <script src="index.js"></script>
+	</body>
+</html>
+

@@ -6,7 +6,6 @@ define(function() {
     (function() {
         T.Module.Bar = T.createModule({
             start: function(resolve) {
-                $(this._ctx).append('<h5>bar</h5>');
                 resolve();
             }
         });

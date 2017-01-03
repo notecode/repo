@@ -11,7 +11,7 @@ gulp.task('connect', function() {
 
 gulp.task('html', function () {
 	gulp.src('./src/**/*.html')
-        .pipe(include())
+        .pipe(include({intent: true}))
         .pipe(gulp.dest('./dist'))
 	    .pipe(connect.reload());
 });

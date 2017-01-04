@@ -212,6 +212,9 @@ Application.prototype.start = function (modules) {
 			var promise = (function (id) {
 				return new Promise(function (resolve, reject) {
                     modules[id].start(resolve, reject);
+                    
+                    // 以防module.start忘记resolve，故这里补一刀 --NoteCode
+                    resolve();
 				});
 			}(id));
 

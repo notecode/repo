@@ -6,7 +6,9 @@ define(function() {
     (function() {
         T.Module.Bar = T.createModule({
             start: function(resolve) {
-                resolve();
+                this._events.on('t.sync', function() {
+                    console.log('bar on sync');
+                });
             }
         });
     })();

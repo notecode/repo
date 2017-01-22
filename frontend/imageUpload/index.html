@@ -23,6 +23,11 @@
                 direction: ltr;
                 cursor: pointer;
             }
+
+            img, iframe, canvas {
+                max-height: 200px;
+                max-width: 300px;
+            }
         </style>
 	</head>
 	<body>
@@ -32,18 +37,31 @@
         </span>
         <div id="files" class="files"></div>
 
+        <!-- <div id="imgs">
+            <img id="bruce" src="img/6.jpg">
+        </div> -->
+
+        <!-- <form id="file-form" action="" method="POST" enctype="multipart/form-data">
+            <input type="file" name="pic">
+        </form> -->
+
         <script src="./vendor/jquery.js"></script>
         <script src="./vendor/jquery.ui.widget.js"></script>
-        <script src="./vendor/jquery.fileupload.js"></script>
+        <!-- <script src="./vendor/jquery.iframe-transport.js"></script> -->
+        <!-- <script src="./vendor/jquery.xdr-transport.js"></script> -->
 
+        <script src="./vendor/jquery.fileupload.js"></script>
         <script src="./vendor/load-image/load-image.js"></script>
         <script src="./vendor/load-image/load-image-meta.js"></script>
         <script src="./vendor/load-image/load-image-exif.js"></script>
+        <script src="./vendor/load-image/load-image-exif-map.js"></script>
         <script src="./vendor/load-image/load-image-orientation.js"></script>
+        <!-- <script src="./vendor/load-image/load-image.all.min.js"></script> -->
 
         <script src="./vendor/jquery.fileupload-process.js"></script>
         <script src="./vendor/jquery.fileupload-image.js"></script>
 
+        <script src="vendor/my-utils.js"></script>
         <script src="index.js"></script>
 	</body>
 </html>

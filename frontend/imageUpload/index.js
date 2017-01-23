@@ -1,7 +1,8 @@
 $(function () {
   $('#fileupload').fileupload({
     url: "http://api.xxtao.com/index.php?r=demand/c23", 
-    //url: "http://jquery-file-upload.appspot.com/",
+//    url: "/fake.txt",
+//    method: 'GET',
     dataType: 'json',
     autoUpload: false,
     acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
@@ -11,9 +12,13 @@ $(function () {
     previewMaxHeight: 300,
     previewThumbnail: false,
     previewCrop: true,
-    //forceIframeTransport: true,
     xhrFields: {
       withCredentials: true
+    },
+    //forceIframeTransport: true,
+    done: function (e, data) {
+        console.log('done:');
+        console.log(data.result);
     }
   }).on('fileuploadadd', function (e, data) {
     data.context = $('<div/>').appendTo('#files');
@@ -28,24 +33,12 @@ $(function () {
         });
     });
   }).on('fileuploadprocessalways', function (e, data) {
-    var index = data.index,
-      file = data.files[index],
-        node = $(data.context.children()[index]);
-        if (file.preview) {
-          node.prepend('<br>').prepend(file.preview);
-        }
+      var index = data.index,
+          file = data.files[index],
+          node = $(data.context.children()[index]);
+          if (file.preview) {
+              node.prepend('<br>').prepend(file.preview);
+          }
   });
-
-
-//  $('#file-form').fileupload({
-//      url: "http://api.xxtao.com/index.php?r=demand/c23", 
-//      dataType: 'json',
-//      context: $('#file-form')[0]
-//  }).always(function () {
-//  }).done(function (result) {
-//      //$(this).fileupload('option', 'done').call(this, $.Event('done'), {result: result});
-//      console.log(result);
-//  }); 
-                                          
 }); 
 

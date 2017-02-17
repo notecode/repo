@@ -2,15 +2,37 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var clean = require('gulp-clean');
+var connect = require('gulp-connect');
+
+gulp.task('connect', function() {
+	connect.server({
+		root: 'dist',
+		livereload: true
+	});
+});
+
+gulp.task('html', function () {
+	gulp.src('./src/**/*.html')
+    .pipe(gulp.dest('dist/'))
+	.pipe(connect.reload());
+});
 
 gulp.task('sass', function() {
-	return gulp.src('./sass/**/*.scss')
-			.pipe(sass({includePaths: ['./sass/partials/']}).on('error', sass.logError))
-			.pipe(gulp.dest('./css'));
+	return gulp.src('./src/sass/*.scss')
+			.pipe(sass({includePaths: ['./src/sass/partials/']}).on('error', sass.logError))
+			.pipe(gulp.dest('./dist/css'))
+	        .pipe(connect.reload());
 });
 
-gulp.task('sass:watch', function() {
-	gulp.watch('./sass/**/*.scss', ['sass']);
+gulp.task('watch', function() {
+	gulp.watch('./src/**/*.html', ['html']);
+	gulp.watch('./src/sass/**/*.scss', ['sass']);
 });
 
-gulp.task('default', ['sass:watch'])
+gulp.task('clean', function () {
+	gulp.src('dist', {read: false})
+	.pipe(clean());
+});
+
+gulp.task('default', ['connect', 'html', 'sass', 'watch'])

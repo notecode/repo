@@ -15,24 +15,20 @@ p {
 
 /* nesting */
 
-div,
-.some-outter {
+div {
 	i {
 		display: none;
 	}
 
-	p {
-		color: blue;
+	div {
+		color: green;
 
-		h2 {
-			font-size: 14px;
+		h1 {
+			font-size: 34px;
 		}
 	}
 }
 
 /* partials */
 
-@import 'part';
-@import 'part2';
-@import 'part3';
 

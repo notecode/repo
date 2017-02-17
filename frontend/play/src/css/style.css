@@ -1,0 +1,18 @@
+div, p {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.outter {
+    width: 200px;
+    height: 200px;
+}
+
+.inner {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+
+    margin: 50px auto;
+}

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gulp-connect": "^5.0.0"
+  }
+}

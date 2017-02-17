@@ -1,0 +1,14 @@
+.container, .container_fluid {
+    /* width: 1200px; */
+    border: 1px solid blue;
+}
+
+.row div {
+    /* width: 200px;  */
+    border: 1px solid black;
+}
+
+.row div img {
+    display: block;
+    margin: 0 auto;
+}

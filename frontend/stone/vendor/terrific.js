@@ -564,18 +564,6 @@ function Module(ctx, sandbox) {
 	 */
 	this._ctx = ctx;
 
-    /**
-     * Easy using jQuery: $().find(). by@NoteCode
-     *
-     */
-    this.el = function (sel) {
-        if (typeof jQuery === 'function') {
-            return $(this._ctx).find(sel);
-        } else {
-            return null; 
-        }
-    }
-
 	/**
 	 * The sandbox to get the resources from.
 	 *
@@ -591,6 +579,18 @@ function Module(ctx, sandbox) {
 	 * @type EventEmitter
 	 */
 	this._events = new EventEmitter(sandbox);
+}
+
+/**
+ * Easy using jQuery: $().find(). by@NoteCode
+ *
+ */
+Module.prototype.el = function (sel) {
+    if (typeof jQuery === 'function') {
+        return $(this._ctx).find(sel);
+    } else {
+        return null; 
+    }
 }
 
 /**

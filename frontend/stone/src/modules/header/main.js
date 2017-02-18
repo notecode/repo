@@ -6,7 +6,8 @@ define(function () {
     (function() {
         T.Module.Header = T.createModule({
             start: function(resolve, reject) {
-                console.log('Hello, module header is OK');
+                console.log('Hello, module header is OK.');
+                console.log('Use customed terrific this.el(): ' + this.el('p').text());
             }
         });
     })();

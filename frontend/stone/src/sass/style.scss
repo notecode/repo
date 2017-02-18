@@ -2,6 +2,8 @@
 // 全站所有css（自己写的）最终都发布成一个文件：css/style.css。虽然对于访问第一个页面来说有点大，但后续页面会用浏览器缓存，就不需要再请求了。
 // 这种策略在业界也是一个普遍的做法。各个模块自己的scss在最外层包上，以避免冲突。
 
+@import "custom_bootstrap";
+
 // global
 @import "theme";
 

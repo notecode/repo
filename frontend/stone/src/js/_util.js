@@ -1,13 +1,7 @@
-// Javascript File
 // AUTHOR:   SongErwei
-// FILE:     utils.js
+// FILE:     _util.js
 // ROLE:     some common basic utilities 
 // CREATED:  2015-12-17 10:14:02
-
-var config = {
-	supplier: 's',
-	client: 'c'
-};
 
 function tlog(text) {
 	console.log(text);
@@ -158,46 +152,6 @@ assert(!is_phone_valid('010123456789'));
 assert(!is_phone_valid('10000000000a'));
 assert(!is_phone_valid('+10123456789'));
 
-/* wph specific */
-
-function role_to_num(role) {
-	return (config.supplier == role) ? "100" : "1";
-}
-
-function num_to_role(num) {
-	return ("100" == num) ? config.supplier : config.client; 
-}
-
-
-var cookie_utils = {
-	// 登录了？（不管身份）
-	is_loggedin: function() {
-		//return has_cookie('_identity');
-		return hasCookie('_identity');
-	},
-
-	// 未登录？（未登录即为游客）
-	is_guest: function() {
-		return !this.is_loggedin();
-	},
-
-	// 登录且是普通用户？
-	is_client: function() {
-		return (this.is_loggedin() && (num_to_role(getCookie('user_type')) == config.client));
-	},
-	
-	// 登录且是工程商？
-	is_supplier: function() {
-		return (this.is_loggedin() && (num_to_role(getCookie('user_type')) == config.supplier));
-	},
-
-	// （如果登录了），返回身份('100' or '1')
-	logged_role: function() {
-		assert(this.is_loggedin())
-		return (this.is_supplier() ? config.supplier : config.client)	
-	}
-};
-
 function safe_func(func) {
 	if (func != undefined) {
 		return func
@@ -205,33 +159,25 @@ function safe_func(func) {
 		return function(x) {}
 	}
 }
-//
-function can_click_now(cla){
-	if($(cla).attr("work")==undefined){
-		$(cla).attr("work","yes");
-		tlog("can`t click for 5s")
-		setTimeout(function(){
-			$(cla).removeAttr("work");
-			tlog("can click")
-		},3000)
-		return true;
-	}else{
-		return false;
-	}
 
+function can_click_now(cla){
+    if ($(cla).attr("work") == undefined) {
+        $(cla).attr("work","yes");
+        tlog("can`t click for 5s")
+        setTimeout(function() {
+            $(cla).removeAttr("work");
+            tlog("can click")
+        }, 3000)
+        
+        return true;
+    } else {
+        return false;
+    }
 }
-$("input").focus(function(){
-	$(this).parent().css("border-bottom-color","#4785f9")
-})
-$("input").blur(function(){
-	$(this).parent().css("border-bottom-color","#efefef")
-})
+
 // 有时，只能用px值。故，需自己将rem转换为px
 function rem_to_px(rem) {                                   
       return rem * parseFloat($('html').css('font-size'));
-}
-function is_supplier_map(){
-	return location.pathname.contains('maintenance');
 }
 
 
@@ -262,71 +208,6 @@ function detectIE() {
   // other browser
   return false;
 }
-
-/*   功能: 计算某个时间与现在的间隔, 并返回文本
-*    参数: 传入的时间格式为 "1479475441" 标准
-*    说明: 已经和服务端约定好: _init/_uptm 等以后均须以"1479475441"格式返回。曾经的"2016-11-18T21:24:01"格式，恕前端不支持
-*/
-function count_date_gap(startTime) {
-  assert(-1 == startTime.indexOf('-'));
-
-	var text;
-	// var stime = new Date(startTime).getTime();//转换
-	var stime = startTime * 1000;
-	var date = new Date().getTime();
-	var gapMin = parseInt((date - stime)/1000/60);
-	if(gapMin <= 0){
-		//防止偶尔出现的js取时间不准确
-		gapMin = 1;
-	}
-	var gapHour = parseInt((date - stime)/1000/60/60);
-
-	if(gapHour <= 24){
-		text = gapHour + '小时前';
-		if(gapMin < 60){
-			text = gapMin + '分钟前';
-		}
-	}else if(gapHour <= 24*30){
-		gapHour = parseInt(gapHour/24);
-		text = gapHour + '天前'
-	}else if(gapHour <= 24*30*12){
-		gapHour = parseInt(gapHour/24/30);
-		text = gapHour + '个月前'
-	}else{
-		//防止意外情况，暂时如此处理
-		text = '刚刚'
-	}
-	return text;
-}
-function to_count_data_gap(time){
-	time = time * 1000;
-	var date = new Date(time);
-	Y = date.getFullYear() + '-';
-	M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-	D = date.getDate() + 'T';
-	h = date.getHours() + ':';
-	m = date.getMinutes() + ':';
-	s = date.getSeconds();
-	if (date.getSeconds()<10) {
-		s = "0" + s;
-	} 
-	if(date.getMinutes()<10){
-		m = "0"+m;
-	}
-	return Y+M+D+h+m+s;
-}
-
-function thin_address(raw) {
- 	var rgx = new RegExp(/^中国.{2,3}[省市]/g);
-	var val = rgx.exec(raw);
-	return (val) ? raw.replace(val[0], '') : raw;
-}
-
-assert('郑州市' === thin_address('中国河南省郑州市'));
-assert('北京市朝阳区' === thin_address('中国北京市北京市朝阳区'));
-assert('哈尔滨市' === thin_address('中国黑龙江省哈尔滨市'));
-assert('郑州市三七区' === thin_address('郑州市三七区'));
-
 
 function isAndroid() {
     var md = new MobileDetect(window.navigator.userAgent);

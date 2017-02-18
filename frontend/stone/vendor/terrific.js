@@ -585,12 +585,15 @@ function Module(ctx, sandbox) {
  * Easy using jQuery: $().find(). by@NoteCode
  *
  */
-Module.prototype.el = function (sel) {
+Module.prototype.find = function (sel) {
     if (typeof jQuery === 'function') {
         return $(this._ctx).find(sel);
     } else {
         return null; 
     }
+}
+Module.prototype.el = function (sel) {
+    return this.find('[el=' + sel + ']');
 }
 
 /**

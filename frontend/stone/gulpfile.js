@@ -40,6 +40,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('watch', function() {
+	gulp.watch('./vendor/**/*', ['vendor']);
 	gulp.watch('./src/**/*.+(html|js)', ['pages']);
 	gulp.watch('./src/**/*.scss', ['sass']);
 });

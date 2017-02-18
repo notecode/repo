@@ -14,6 +14,8 @@
  * @copyright   Copyright (c) 2016 Remo Brunschwiler
  * @license     Licensed under MIT license
  * @version     3.0.0
+ *
+ * Maintained by NoteCode. whare? search: NoteCode
  */
 
 /**
@@ -213,7 +215,7 @@ Application.prototype.start = function (modules) {
 				return new Promise(function (resolve, reject) {
                     modules[id].start(resolve, reject);
                     
-                    // 以防module.start忘记resolve，故这里补一刀 --NoteCode
+                    // 以防module.start忘记resolve，故这里补一刀 by@NoteCode
                     resolve();
 				});
 			}(id));
@@ -561,6 +563,18 @@ function Module(ctx, sandbox) {
 	 * @type Node
 	 */
 	this._ctx = ctx;
+
+    /**
+     * Easy using jQuery: $().find(). by@NoteCode
+     *
+     */
+    this.el = function (sel) {
+        if (typeof jQuery === 'function') {
+            return $(this._ctx).find(sel);
+        } else {
+            return null; 
+        }
+    }
 
 	/**
 	 * The sandbox to get the resources from.

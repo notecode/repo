@@ -7,6 +7,9 @@ define(function() {
         T.Module.Foo = T.createModule({
             start: function(resolve, reject) {
                 this.fooX();
+
+                console.log(this.el('h1'));
+
                 this._events.on('t.sync', this.onSync);
             },
 

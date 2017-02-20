@@ -34,7 +34,7 @@ gulp.task('module-js', function () {
 
 gulp.task('sass', function() {
 	return gulp.src('./src/sass/style.scss')
-        .pipe(sass({includePaths: ['./src/modules/']}).on('error', sass.logError))
+        .pipe(sass({includePaths: ['./src/']}).on('error', sass.logError))
         .pipe(gulp.dest('./dist/css'))
         .pipe(connect.reload());
 });

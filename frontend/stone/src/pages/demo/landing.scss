@@ -1,6 +1,35 @@
 #landing {
-    #hello {
-        color: green;
-        font-size: 30px;
+    #banner {
+        text-align: center;
+        color: #eeeeee;
+        background: url('/demo/images/intro-bg.jpg') no-repeat center center;
+        background-size: cover;
+
+        .banner-text {
+            margin: 15% 0;
+
+            h1 {
+            	font-size: 5em;
+            }
+
+            p {
+            	font-size: 24px;
+            }
+
+            hr {
+            	width: 450px;
+            }
+
+            ul {
+            	li {
+            		display: inline-block;
+
+            		.btn {
+	            		background-color: #eeeeee;
+	            		margin: 0 20px;
+            		}
+            	}
+            }
+        }
     }
 }

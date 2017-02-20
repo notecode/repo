@@ -1,26 +1,27 @@
 #landing {
-    #banner {
+    #banner, #banner2 {
         text-align: center;
         color: #eeeeee;
         background: url('/demo/images/intro-bg.jpg') no-repeat center center;
         background-size: cover;
 
-        .banner-text {
+        .row {
             margin: 15% 0;
 
             h1 {
-            	font-size: 5em;
-            }
+                font-size: 5em;
+        }
 
-            p {
-            	font-size: 24px;
-            }
+        p {
+            font-size: 24px;
+        }
 
-            hr {
-            	width: 450px;
+        hr {
+            width: 450px;
             }
 
             ul {
+                padding-left: 0px;
             	li {
             		display: inline-block;
 
@@ -29,6 +30,17 @@
 	            		margin: 0 20px;
             		}
             	}
+            }
+        }
+    }
+
+    #banner2 {
+        background: url('/demo/images/banner-bg.jpg') no-repeat center center;
+        .row {
+            margin: 5% 0;
+            h1 {
+                font-size: 3em;
+                margin: 0;
             }
         }
     }
@@ -42,5 +54,14 @@
     	&.part1, &.part3 {
     		background-color: #eeeeee;
     	}
+    }
+
+    #footer {
+        ul {
+            padding-left: 0px;
+            li {
+                display: inline-block;
+            }
+        }     
     }
 }

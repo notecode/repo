@@ -1,0 +1,58 @@
+#freelancer {
+  $main_color: #18BC9C;
+  
+  $light_color: #fff;
+  $dark_color: #233140;
+
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  .navbar {
+    background-color: $dark_color;
+  }
+
+  .navbar-brand {
+    color: $light_color;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  .navbar-nav {
+    color: $light_color;
+  }
+
+  // a tag will not inherit its parent's color attribute out-of-the-box
+  a {
+    color: inherit;
+  }
+  a:hover {
+    color: $main_color;
+  }
+
+  #banner {
+    background-color: $main_color;
+    padding-top: 80px;
+    text-align: center;
+    color: $light_color;
+
+    img {
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    @media (min-width: 768px) {
+      padding-top: 120px;
+
+      h1 {
+        font-size: 5em;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+    }
+  }
+}

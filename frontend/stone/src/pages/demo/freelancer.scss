@@ -55,4 +55,20 @@
       }
     }
   }
+
+  hr {
+    border: 2px solid #fff;
+    border-radius: 2px; 
+    width: 200px;
+  }
+
+  hr:after {
+    font-family: FontAwesome;
+    content: '\f005';
+    font-size: 25px;
+    position: relative;
+    top: -17px;
+    background-color: $main_color;
+    padding: 0 3px;
+  }
 }

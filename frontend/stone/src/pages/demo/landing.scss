@@ -1,67 +1,67 @@
 #landing {
-    #banner, #banner2 {
-        text-align: center;
-        color: #eeeeee;
-        background: url('/demo/images/intro-bg.jpg') no-repeat center center;
-        background-size: cover;
+  #banner, #banner2 {
+    text-align: center;
+    color: #eeeeee;
+    background: url('/demo/images/intro-bg.jpg') no-repeat center center;
+    background-size: cover;
 
-        .row {
-            margin: 15% 0;
+    .row {
+      margin: 15% 0;
 
-            h1 {
-                font-size: 5em;
+      h1 {
+        font-size: 5em;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      hr {
+        width: 450px;
+      }
+
+      ul {
+        padding-left: 0px;
+        li {
+          display: inline-block;
+
+          .btn {
+            background-color: #eeeeee;
+            margin: 0 20px;
+          }
         }
+      }
+    }
+  }
 
-        p {
-            font-size: 24px;
-        }
+  #banner2 {
+    background: url('/demo/images/banner-bg.jpg') no-repeat center center;
+    .row {
+      margin: 5% 0;
+      h1 {
+        font-size: 3em;
+        margin: 0;
+      }
+    }
+  }
 
-        hr {
-            width: 450px;
-            }
-
-            ul {
-                padding-left: 0px;
-            	li {
-            		display: inline-block;
-
-            		.btn {
-	            		background-color: #eeeeee;
-	            		margin: 0 20px;
-            		}
-            	}
-            }
-        }
+  .main-body {
+    .row {
+      margin-top: 50px;
+      margin-bottom: 50px;
     }
 
-    #banner2 {
-        background: url('/demo/images/banner-bg.jpg') no-repeat center center;
-        .row {
-            margin: 5% 0;
-            h1 {
-                font-size: 3em;
-                margin: 0;
-            }
-        }
+    &.part1, &.part3 {
+      background-color: #eeeeee;
     }
+  }
 
-    .main-body {
-    	.row {
-    		margin-top: 50px;
-    		margin-bottom: 50px;
-    	}
-
-    	&.part1, &.part3 {
-    		background-color: #eeeeee;
-    	}
-    }
-
-    #footer {
-        ul {
-            padding-left: 0px;
-            li {
-                display: inline-block;
-            }
-        }     
-    }
+  #footer {
+    ul {
+      padding-left: 0px;
+      li {
+        display: inline-block;
+      }
+    }     
+  }
 }

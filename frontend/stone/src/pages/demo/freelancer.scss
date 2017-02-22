@@ -80,9 +80,15 @@
     }
 
     h1 {
-      font-size: 4em;
+      font-size: 2em;
       font-weight: 600;
       margin-top: 0;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 4em;
+      }
     }
 
     hr {

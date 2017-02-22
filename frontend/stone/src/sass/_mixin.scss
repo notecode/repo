@@ -2,3 +2,7 @@
 @mixin mx-border($color, $px: 1px) {
   border: $px solid $color;
 }
+
+@mixin mx-radius($px) {
+  border-radius: $px;
+}

@@ -164,6 +164,55 @@
       content: '\f019';
       margin-right: 5px;
     }
-    
+  }
+
+  #bottom {
+    background-color: $dark_color;
+    color: $light_color;
+    padding: 50px 0;
+
+    h1 {
+      font-size: 1.6em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 20px;
+
+      li {
+        display: inline;
+
+        span {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          font-size: 25px;
+          @include mx-border($light_color, 2px);
+
+          padding-top: 11px;
+          @include mx-radius(50%);
+        }
+
+        a:hover span {
+          background-color: $light_color;
+        }
+      }
+    }
+
+    .author {
+      color: $main_color;
+    }
+  }
+
+  #footer {
+    background-color: #000;
+    color: $light_color;
+    padding: 20px;
   }
 }

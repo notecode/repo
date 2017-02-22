@@ -71,4 +71,38 @@
     background-color: $main_color;
     padding: 0 3px;
   }
+
+  #about {
+    background-color: $main_color;
+    color: $light_color;
+    text-align: center;
+    padding: 50px 0;
+
+    h1 {
+      font-size: 4em;
+      font-weight: 600;
+      margin-top: 0;
+    }
+    .contents {
+      text-align: left;
+      font-size: 18px;
+    }
+
+    .btn {
+      background-color: $main_color;
+      border: 2px solid $light_color;
+      font-size: 22px;
+    }
+    .btn:hover {
+      background-color: $light_color;  
+      color: $main_color;
+    }
+
+    .btn:before {
+      font-family: FontAwesome;
+      content: '\f019';
+      margin-right: 5px;
+    }
+    
+  }
 }

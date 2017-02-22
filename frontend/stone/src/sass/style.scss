@@ -3,6 +3,7 @@
 // 这种策略在业界也是一个普遍的做法。各个模块自己的scss在最外层包上，以避免冲突。
 
 @import "custom_bootstrap";
+@import "mixin";
 
 // global
 @import "theme";
@@ -14,3 +15,7 @@
 // pages
 @import "pages/demo/landing";
 @import "pages/demo/freelancer";
+
+
+// trick
+@import "pages/demo/trick";

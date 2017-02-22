@@ -1,0 +1,4 @@
+
+@mixin mx-border($color, $px: 1px) {
+  border: $px solid $color;
+}

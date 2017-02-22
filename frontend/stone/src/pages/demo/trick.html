@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    @@include('top/main.html')
+  </head>
+  <body id="trick">
+
+    <div class="container">
+      <div class="row">
+        <div id="center1">
+          <h1>Horiz & Vertical Centering</h1>
+          <p>Concept: Use a v-fixer(Vertical fixer) to fix the inner elem in Vertical Middle, then adjust inner's margin-top, which depends on its own height. Thus: <br/> 1. Whenever the inner's height changed, you just need to adjust its margin-top <br/> 2. When outter size changed, you need not do nothing.</p> <div class="col-md-4 col-md-offset-4">
+            <div class="square">
+              <div class="v-fixer">
+                <div class="shower hori-center"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row"></div>
+    </div>
+
+    @@include('bottom/main.html', {"js": ""})
+  </body>
+</html>

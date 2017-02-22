@@ -5,6 +5,7 @@
   $dark_color: #233140;
 
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-align: center;
 
   .navbar {
     background-color: $dark_color;
@@ -31,7 +32,6 @@
   #banner {
     background-color: $main_color;
     padding-top: 80px;
-    text-align: center;
     color: $light_color;
 
     img {
@@ -72,10 +72,42 @@
     padding: 0 3px;
   }
 
+  #portfolio {
+    padding: 50px 0;
+
+    .row:first {
+      color: $dark_color; 
+    }
+
+    h1 {
+      font-size: 4em;
+      font-weight: 600;
+      margin-top: 0;
+    }
+
+    hr {
+      border: 2px solid $dark_color;
+    }
+
+    hr:after {
+      background-color: $light_color; 
+    }
+
+    .gallery div {
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+      a {
+        max-width: 400px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
   #about {
     background-color: $main_color;
     color: $light_color;
-    text-align: center;
     padding: 50px 0;
 
     h1 {

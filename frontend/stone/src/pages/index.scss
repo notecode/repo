@@ -33,4 +33,18 @@
       }
     }
   }
+
+  #part-b {
+    margin-top: 30px; 
+
+    hr {
+      @include mx-v-mrg(5px);
+    }
+    .gallery {
+      div {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+    }
+  }
 }

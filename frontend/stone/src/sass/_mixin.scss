@@ -13,3 +13,36 @@
 @mixin mx-radius($px) {
   border-radius: $px;
 }
+
+@mixin mx-v-mrg($px) {
+  @include mx-v-mrg2($px, $px);
+}
+@mixin mx-v-mrg2($px, $py) {
+  margin-top: $px;
+  margin-bottom: $py;
+}
+
+@mixin mx-h-mrg($px) {
+  @include mx-h-mrg2($px, $px);
+}
+@mixin mx-h-mrg2($px, $py) {
+  margin-left: $px;
+  margin-right: $py;
+}
+
+@mixin mx-v-pad($px) {
+  @include mx-v-pad2($px, $px);
+}
+@mixin mx-v-pad2($px, $py) {
+  padding-top: $px;
+  padding-bottom: $py;
+}
+
+@mixin mx-h-pad($px) {
+  @include mx-h-pad2($px, $px);
+}
+@mixin mx-h-pad2($px, $py) {
+  padding-left: $px;
+  padding-right: $py;
+}
+

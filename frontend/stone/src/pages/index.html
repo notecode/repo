@@ -1,16 +1,55 @@
 <!doctype html>
 <html>
-	<head>
-        @@include('top/main.html')
-	</head>
-	<body>
-        @@include('header/main.html')
+  <head>
+    @@include('top/main.html')
+  </head>
+  <body>
+    @@include('header/main.html')
 
-        <h1>index.html</h1>
-        <button class="btn btn-default">Bootstrap Button</button>
+    <div id="index-page">
+      <div id="slide" style="height: 100px">
+      </div>
 
-        @@include('footer/main.html') 
-        @@include('bottom/main.html', {"js": "index.js"})
-    </body>
+      <div id="part-a">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1>Welcome to Modern Business</h1>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="block">
+                <h2><i class="fa fa-check"></i>Bootstrap v3.3.7</h2>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                <div class="btn">Learn More</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="block">
+                <h2><i class="fa fa-gift"></i>Free & Open Source</h2>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                <div class="btn">Learn More</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="block">
+                <h2><i class="fa fa-compass"></i>Easy to Use</h2>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                <div class="btn">Learn More</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @@include('footer/main.html') 
+    @@include('bottom/main.html', {"js": "index.js"})
+  </body>
 </html>
 

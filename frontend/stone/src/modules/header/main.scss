@@ -1,7 +1,14 @@
+#header {
+  background-color: $dark_color;
 
-[data-t-name="header"] {
-	p {
-		font-size: 20px;
-        color: $primary_color;
-	}
+  a {
+    color: gray;
+  }
+  a:hover {
+    color: $light_color;
+  }
+
+  .dropdown-menu {
+    background-color: $dark_color;
+  }
 }

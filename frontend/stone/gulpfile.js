@@ -64,5 +64,11 @@ gulp.task('clean', function () {
 	.pipe(clean());
 });
 
+// dist to my local clone of notecode.github.io
+gulp.task('dist', function() {
+	gulp.src('dist/**/*')
+  .pipe(gulp.dest('/Users/songerwei/github/notecode.github.io/'));
+});
+
 gulp.task('all', ['vendor', 'images', 'pages', 'sass', 'global-js']);
 gulp.task('default', ['connect', 'watch']);

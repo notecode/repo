@@ -1,0 +1,23 @@
+#services-page {
+  .panel-list {
+    @include mx-top-mrg(20px);
+
+    .panel {
+      @include mx-bdr($bdr_clr);
+      @include mx-txt-ctr();
+
+      .up-part {
+        @include mx-bg-clr($thm_clr);
+        @include mx-btm-bdr($bdr_clr);
+      }
+
+      p {
+        @include mx-h-pad(10px);
+      }
+
+      .btn {
+        @include mx-btm-mrg(15px);
+      }
+    }
+  }
+}

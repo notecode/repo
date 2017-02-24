@@ -3,10 +3,14 @@
   border: $px solid $color;
 }
 
-@mixin mx-border-top($color, $px: 1px) {
+@mixin mx-v-border($color, $px: 1px) {
+  border-top: $px solid $color;
+  border-bottom: $px solid $color;
+}
+@mixin mx-top-border($color, $px: 1px) {
   border-top: $px solid $color;
 }
-@mixin mx-border-bottom($color, $px: 1px) {
+@mixin mx-bottom-border($color, $px: 1px) {
   border-bottom: $px solid $color;
 }
 

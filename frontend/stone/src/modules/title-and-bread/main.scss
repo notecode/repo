@@ -1,0 +1,13 @@
+
+.title {
+  @include mx-top-mrg(20px);
+
+  h1 {
+    display: inline-block;
+  }
+
+  span {
+    font-size: 1.8em;
+    @include mx-l-mrg(10px);
+  }
+}

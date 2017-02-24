@@ -1,0 +1,8 @@
+#about-page {
+  @include mx-top-pad(50px);
+
+  hr {
+    @include mx-v-mrg(5px);
+  }
+
+}

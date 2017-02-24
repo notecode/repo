@@ -1,14 +1,20 @@
 <!doctype html>
 <html>
-	<head>
-        @@include('top/main.html')
-	</head>
-	<body>
-        @@include('header/main.html')
+  <head>
+    @@include('top/main.html')
+  </head>
+  <body>
+    @@include('header/main.html')
 
-        <h1>about.html</h1>
+    <div id="about-page">
+      <div class="container">
+        @@include('title-and-bread/main.html', {"title": "About"})
 
-        @@include('footer/main.html') 
-        @@include('bottom/main.html', {"js": "about.js"})
-	</body>
+      </div><!-- container --> 
+
+    </div><!-- id=about-page --> 
+
+    @@include('footer/main.html') 
+    @@include('bottom/main.html', {"js": "about.js"})
+  </body>
 </html>

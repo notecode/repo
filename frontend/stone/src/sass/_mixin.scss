@@ -4,6 +4,8 @@
 //
 // v:   vertical
 // h:   horizontal
+// l:   left
+// r:   right
 // bg:  background
 // bdr: border
 // clr: color
@@ -38,6 +40,18 @@
   border-radius: $px;
 }
 
+@mixin mx-l-mrg($px) {
+  margin-left: $px;
+}
+@mixin mx-r-mrg($px) {
+  margin-right: $px;
+}
+@mixin mx-top-mrg($px) {
+  margin-top: $px;
+}
+@mixin mx-btm-mrg($px) {
+  margin-bottom: $px;
+}
 @mixin mx-v-mrg($px) {
   @include mx-v-mrg2($px, $px);
 }
@@ -45,13 +59,25 @@
   margin-top: $px;
   margin-bottom: $py;
 }
-
 @mixin mx-h-mrg($px) {
   @include mx-h-mrg2($px, $px);
 }
 @mixin mx-h-mrg2($px, $py) {
   margin-left: $px;
   margin-right: $py;
+}
+
+@mixin mx-l-pad($px) {
+  padding-left: $px;
+}
+@mixin mx-r-pad($px) {
+  padding-right: $px;
+}
+@mixin mx-top-pad($px) {
+  padding-top: $px;
+}
+@mixin mx-btm-pad($px) {
+  padding-bottom: $px;
 }
 
 @mixin mx-v-pad($px) {

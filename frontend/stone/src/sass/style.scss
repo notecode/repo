@@ -10,9 +10,11 @@
 // modules
 @import "modules/header/main";
 @import "modules/footer/main";
+@import "modules/title-and-bread/main";
 
 // pages
 @import "pages/index";
+@import "pages/about";
 @import "pages/demo/landing";
 @import "pages/demo/freelancer";
 

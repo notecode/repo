@@ -3,48 +3,56 @@
     border-top: 1px solid $border_color;
   }
 
-  #part-a {
-    .block {
-      @include mx-border($border_color);
-      @include mx-radius(5px);
+  .feature-block {
+    @include mx-border($border_color);
+    @include mx-radius(5px);
 
-      h2 {
-        i {
-          font-size: 0.8em;
-          margin-right: 6px;
-        }
-
-        background-color: $theme_color;
-        font-size: 1.5em;
-        margin: 0;
-        padding: 15px;
+    h2 {
+      i {
+        font-size: 0.8em;
+        margin-right: 6px;
       }
 
-      hr {
-        margin: 0;
-      }
+      background-color: $theme_color;
+      font-size: 1.5em;
+      margin: 0;
+      padding: 15px;
+    }
 
-      p {
-        margin: 0 15px;
-        margin-top: 15px;
-      }
-      .btn {
-        margin: 15px;
-      }
+    hr {
+      margin: 0;
+    }
+
+    p {
+      margin: 0 15px;
+      margin-top: 15px;
+    }
+    .btn {
+      margin: 15px;
     }
   }
 
-  #part-b {
-    margin-top: 30px; 
+  .title2 {
+    margin-top: 50px; 
 
     hr {
       @include mx-v-mrg(5px);
     }
-    .gallery {
-      div {
-        margin-top: 15px;
-        margin-bottom: 15px;
+  }
+
+  .gallery > div {
+    @include mx-v-mrg(15px);
+  }
+
+  .action {
+    .btn {
+      font-size: 1.5em;
+      @include mx-bg-clr($light_color);
+
+      &:hover {
+        @include mx-bg-clr(gray);
       }
     }
   }
+
 }

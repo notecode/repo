@@ -1,4 +1,8 @@
 
+@mixin mx-bg-clr($clr) {
+  background-color: $clr;
+}
+
 @mixin mx-border($color, $px: 1px) {
   border: $px solid $color;
 }

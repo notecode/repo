@@ -1,0 +1,10 @@
+#misc-page {
+  @include mx-top-mrg(50px);
+
+  font-size: 40px;
+  //color: #337ab7;
+
+  .row > div {
+    @include mx-bdr($bdr_clr);
+  }
+}

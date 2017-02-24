@@ -1,7 +1,7 @@
 #trick {
   $main_color: #18BC9C;
-  $dark_color: #000;
-  $light_color: #fff;
+  $drk_clr: #000;
+  $lgt_clr: #fff;
 
   text-align: center;
 
@@ -22,8 +22,8 @@
     height: 30px;
 
     margin-top: -5px;
-    background-color: $light_color;
-    @include mx-bdr($dark_color);
+    background-color: $lgt_clr;
+    @include mx-bdr($drk_clr);
   }
 
   // The outter should have set: text-align: center;
@@ -39,6 +39,6 @@
     top: 50%;
     margin-top: -10px;
 
-    @include mx-bdr($dark_color);
+    @include mx-bdr($drk_clr);
   }
 }

@@ -1,14 +1,14 @@
 #header {
-  background-color: $dark_color;
+  background-color: $drk_clr;
 
   a {
     color: gray;
   }
   a:hover {
-    color: $light_color;
+    color: $lgt_clr;
   }
 
   .dropdown-menu {
-    background-color: $dark_color;
+    background-color: $drk_clr;
   }
 }

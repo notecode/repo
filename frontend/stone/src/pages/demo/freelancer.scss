@@ -1,24 +1,24 @@
 #freelancer {
   $main_color: #18BC9C;
   
-  $light_color: #fff;
-  $dark_color: #233140;
+  $lgt_clr: #fff;
+  $drk_clr: #233140;
 
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
   text-align: center;
 
   .navbar {
-    background-color: $dark_color;
+    background-color: $drk_clr;
   }
 
   .navbar-brand {
-    color: $light_color;
+    color: $lgt_clr;
     font-size: 28px;
     font-weight: 500;
   }
 
   .navbar-nav {
-    color: $light_color;
+    color: $lgt_clr;
   }
 
   // a tag will not inherit its parent's color attribute out-of-the-box
@@ -32,7 +32,7 @@
   #banner {
     background-color: $main_color;
     padding-top: 80px;
-    color: $light_color;
+    color: $lgt_clr;
 
     img {
       display: inline-block;
@@ -76,7 +76,7 @@
     padding: 50px 0;
 
     .row:first {
-      color: $dark_color; 
+      color: $drk_clr; 
     }
 
     h1 {
@@ -92,11 +92,11 @@
     }
 
     hr {
-      border: 2px solid $dark_color;
+      border: 2px solid $drk_clr;
     }
 
     hr:after {
-      background-color: $light_color; 
+      background-color: $lgt_clr; 
     }
 
     .gallery > div {
@@ -127,7 +127,7 @@
 
             .fa {
               margin-top: -10px;
-              color: $light_color;
+              color: $lgt_clr;
               //border: 1px solid #fff;
             }
           }
@@ -142,7 +142,7 @@
 
   #about {
     background-color: $main_color;
-    color: $light_color;
+    color: $lgt_clr;
     padding: 50px 0;
 
     h1 {
@@ -157,11 +157,11 @@
 
     .btn {
       background-color: $main_color;
-      border: 2px solid $light_color;
+      border: 2px solid $lgt_clr;
       font-size: 22px;
     }
     .btn:hover {
-      background-color: $light_color;  
+      background-color: $lgt_clr;  
       color: $main_color;
     }
 
@@ -173,8 +173,8 @@
   }
 
   #bottom {
-    background-color: $dark_color;
-    color: $light_color;
+    background-color: $drk_clr;
+    color: $lgt_clr;
     padding: 50px 0;
 
     h1 {
@@ -199,14 +199,14 @@
           width: 50px;
           height: 50px;
           font-size: 25px;
-          @include mx-bdr($light_color, 2px);
+          @include mx-bdr($lgt_clr, 2px);
 
           padding-top: 11px;
           @include mx-rds(50%);
         }
 
         a:hover span {
-          background-color: $light_color;
+          background-color: $lgt_clr;
         }
       }
     }
@@ -218,7 +218,7 @@
 
   #footer {
     background-color: #000;
-    color: $light_color;
+    color: $lgt_clr;
     padding: 20px;
   }
 }

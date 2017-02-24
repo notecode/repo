@@ -3,8 +3,7 @@
 // 使用自己的主题色等，覆盖bootstrap默认
 
 .btn {
-  // background-color: $primary_color;
-  @include mx-bdr($border-color);
+  @include mx-bdr($bdr_clr);
 }
 
 // Default, there are a huge blank in the line-beginning. So remove it.

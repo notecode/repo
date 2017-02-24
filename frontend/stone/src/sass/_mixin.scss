@@ -1,4 +1,20 @@
 
+//
+// Convention:
+//
+// v:   vertical
+// h:   horizontal
+// bg:  background
+// bdr: border
+// clr: color
+// rds: radius
+// btm: bottom
+// mrg: margin
+// pad: padding
+//
+//
+
+
 @mixin mx-bg-clr($clr) {
   background-color: $clr;
 }
@@ -14,7 +30,7 @@
 @mixin mx-top-bdr($color, $px: 1px) {
   border-top: $px solid $color;
 }
-@mixin mx-bottom-bdr($color, $px: 1px) {
+@mixin mx-btm-bdr($color, $px: 1px) {
   border-bottom: $px solid $color;
 }
 

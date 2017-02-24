@@ -44,6 +44,14 @@
     @include mx-v-mrg(15px);
   }
 
+  .text-image {
+    @include mx-v-mrg(15px);
+
+    ul {
+      padding-left: 50px;
+    }
+  }
+
   .action {
     .btn {
       font-size: 1.5em;

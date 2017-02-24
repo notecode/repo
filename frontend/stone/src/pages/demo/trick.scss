@@ -23,7 +23,7 @@
 
     margin-top: -5px;
     background-color: $light_color;
-    @include mx-border($dark_color);
+    @include mx-bdr($dark_color);
   }
 
   // The outter should have set: text-align: center;
@@ -39,6 +39,6 @@
     top: 50%;
     margin-top: -10px;
 
-    @include mx-border($dark_color);
+    @include mx-bdr($dark_color);
   }
 }

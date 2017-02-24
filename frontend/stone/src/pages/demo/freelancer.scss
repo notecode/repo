@@ -199,10 +199,10 @@
           width: 50px;
           height: 50px;
           font-size: 25px;
-          @include mx-border($light_color, 2px);
+          @include mx-bdr($light_color, 2px);
 
           padding-top: 11px;
-          @include mx-radius(50%);
+          @include mx-rds(50%);
         }
 
         a:hover span {

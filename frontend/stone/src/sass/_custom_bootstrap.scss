@@ -4,7 +4,7 @@
 
 .btn {
   // background-color: $primary_color;
-  @include mx-border($border-color);
+  @include mx-bdr($border-color);
 }
 
 // Default, there are a huge blank in the line-beginning. So remove it.

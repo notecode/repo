@@ -4,8 +4,8 @@
   }
 
   .feature-block {
-    @include mx-border($border_color);
-    @include mx-radius(5px);
+    @include mx-bdr($border_color);
+    @include mx-rds(5px);
 
     h2 {
       i {

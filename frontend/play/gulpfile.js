@@ -3,18 +3,21 @@ var gulp = require('gulp'),
 
 gulp.task('connect', function() {
 	connect.server({
-		root: 'src',
+		root: 'dist',
+    port: 9000,
 		livereload: true
 	});
 });
 
 gulp.task('html', function () {
-	gulp.src('./src/**/*.html')
-	.pipe(connect.reload());
+	return gulp.src('./src/**/*.html')
+    .pipe(gulp.dest('./dist/'))
+	  .pipe(connect.reload());
 });
 gulp.task('css', function () {
-	gulp.src('./src/**/*.css')
-	.pipe(connect.reload());
+	return gulp.src('./src/**/*.css')
+    .pipe(gulp.dest('./dist/'))
+	  .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {

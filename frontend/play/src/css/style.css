@@ -1,18 +1,25 @@
 div, p {
-    width: 500px;
-    margin: 0 auto;
-    border: 1px solid black;
+  margin: 0 auto;
+  border: 1px solid black;
 }
 
 .outter {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }
 
 .inner {
-    width: 100px;
-    height: 100px;
-    background-color: green;
+  width: 100px;
+  height: 100px;
+  background-color: green;
 
-    margin: 50px auto;
+  margin: 50px auto;
+}
+
+.one {
+  margin: 15px;
+  width: 200px;
+  height: 200px;
+  padding: 15px;
+  float: left;
 }

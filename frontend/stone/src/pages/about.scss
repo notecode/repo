@@ -1,2 +1,29 @@
 #about-page {
+  .team-gallery {
+    text-align: center;
+
+    .team {
+      @include mx-pad(5px);
+      @include mx-bdr($bdr_clr);
+      @include mx-rds(5px);
+
+      .job {
+        color: gray;
+      }
+
+      ul {
+        li {
+          font-size: 2em;
+          @include mx-h-mrg(5px);
+          @include mx-inl-blk();
+        }
+      }
+    }
+  }
+
+  .customers {
+    div {
+      @include mx-v-mrg(15px);
+    }
+  }
 }

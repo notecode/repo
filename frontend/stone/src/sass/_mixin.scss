@@ -16,18 +16,34 @@
 //
 //
 
+@mixin mx-inl-blk() {
+  display: inline-block;
+}
 
+//
+// color --------------
+//
+
+@mixin mx-clr($clr) {
+  color: $clr;
+}
 @mixin mx-bg-clr($clr) {
   background-color: $clr;
 }
+
+//
+// border -------------
+//
 
 @mixin mx-bdr($color, $px: 1px) {
   border: $px solid $color;
 }
 
-@mixin mx-v-bdr($color, $px: 1px) {
-  border-top: $px solid $color;
-  border-bottom: $px solid $color;
+@mixin mx-l-bdr($color, $px: 1px) {
+  border-left: $px solid $color;
+}
+@mixin mx-r-bdr($color, $px: 1px) {
+  border-right: $px solid $color;
 }
 @mixin mx-top-bdr($color, $px: 1px) {
   border-top: $px solid $color;
@@ -35,11 +51,28 @@
 @mixin mx-btm-bdr($color, $px: 1px) {
   border-bottom: $px solid $color;
 }
+@mixin mx-h-bdr($color, $px: 1px) {
+  border-left: $px solid $color;
+  border-right: $px solid $color;
+}
+@mixin mx-v-bdr($color, $px: 1px) {
+  border-top: $px solid $color;
+  border-bottom: $px solid $color;
+}
 
+//
+// border-radius -----------
+//
 @mixin mx-rds($px) {
   border-radius: $px;
 }
 
+//
+// margin ----------------
+//
+@mixin mx-mrg($px) {
+  margin: $px;
+}
 @mixin mx-l-mrg($px) {
   margin-left: $px;
 }
@@ -52,13 +85,7 @@
 @mixin mx-btm-mrg($px) {
   margin-bottom: $px;
 }
-@mixin mx-v-mrg($px) {
-  @include mx-v-mrg2($px, $px);
-}
-@mixin mx-v-mrg2($px, $py) {
-  margin-top: $px;
-  margin-bottom: $py;
-}
+
 @mixin mx-h-mrg($px) {
   @include mx-h-mrg2($px, $px);
 }
@@ -66,7 +93,20 @@
   margin-left: $px;
   margin-right: $py;
 }
+@mixin mx-v-mrg($px) {
+  @include mx-v-mrg2($px, $px);
+}
+@mixin mx-v-mrg2($px, $py) {
+  margin-top: $px;
+  margin-bottom: $py;
+}
 
+//
+// padding --------------
+//
+@mixin mx-pad($px) {
+  padding: $px;
+}
 @mixin mx-l-pad($px) {
   padding-left: $px;
 }
@@ -80,6 +120,13 @@
   padding-bottom: $px;
 }
 
+@mixin mx-h-pad($px) {
+  @include mx-h-pad2($px, $px);
+}
+@mixin mx-h-pad2($px, $py) {
+  padding-left: $px;
+  padding-right: $py;
+}
 @mixin mx-v-pad($px) {
   @include mx-v-pad2($px, $px);
 }
@@ -88,11 +135,4 @@
   padding-bottom: $py;
 }
 
-@mixin mx-h-pad($px) {
-  @include mx-h-pad2($px, $px);
-}
-@mixin mx-h-pad2($px, $py) {
-  padding-left: $px;
-  padding-right: $py;
-}
 

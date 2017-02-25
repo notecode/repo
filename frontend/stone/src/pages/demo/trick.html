@@ -10,6 +10,33 @@
     </div>
 
     <div class="container">
+
+      <!-- modal trigger -->
+      <div class="btn btn-primary" data-toggle="modal" data-target="#my-modal">toggle a modal</div>
+
+      <!-- the modal -->
+      <div id="my-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            Hello 
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a href="#tab1" data-toggle="tab">Home</a></li>
+        <li><a href="#tab2" data-toggle="tab">Profile</a></li>
+        <li><a href="#tab3" data-toggle="tab">Messages</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="tab1" class="tab-pane active fade in">Hello, I'm tab1</div>
+        <div id="tab2" class="tab-pane fade">Hello, I'm tab2</div>
+        <div id="tab3" class="tab-pane fade">Hello, I'm tab3</div>
+      </div>
+
       <div class="row">
         <div id="center1">
           <h1>Horiz & Vertical Centering</h1>

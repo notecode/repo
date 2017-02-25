@@ -41,4 +41,14 @@
 
     @include mx-bdr($drk_clr);
   }
+
+  .frame {
+ //   display: table;
+    @include mx-bdr($drk_clr);
+
+    div {
+      display: table-cell;
+      @include mx-bdr(red);
+    }
+  }
 }

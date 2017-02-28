@@ -1,5 +1,7 @@
 {
   "devDependencies": {
-    "grunt": "^1.0.1"
+    "grunt": "^1.0.1",
+    "mathjs": "^3.9.3",
+    "mysql": "^2.13.0"
   }
 }

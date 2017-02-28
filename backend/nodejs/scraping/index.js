@@ -6,10 +6,14 @@ var u = require('./src/util');
 var scrape = require('./src/scrape');
 var mysql = require('./src/mysql');
 
-//var url = 'http://www.ganji.com/index.htm';
-//scrape.start(url, function(city) {
-//  u.log(city);
-//  mysql.foo();
-//});
+mysql.conn();
 
-mysql.foo();
+var url = 'http://www.ganji.com/index.htm';
+scrape.start(url, function(city) {
+  u.log(city);
+  mysql.insert_price(city);
+});
+
+//mysql.foo();
+
+//mysql.dis_conn();

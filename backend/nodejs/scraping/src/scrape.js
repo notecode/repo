@@ -8,6 +8,7 @@ var u = require('./util');
 var scraperjs = require('scraperjs');
 
 function start_scrape(url, handler) {
+  u.log('intent url: ' + url);
   scraperjs.StaticScraper.create(url)
   .onStatusCode(function(statusCode, utils) {
     u.gLog('City-list page url: ' + utils.url);
@@ -23,17 +24,23 @@ function start_scrape(url, handler) {
     }).get();
   })
   .then(function(href_list) {
-    href_list[0].url += '/fang5/';
-    house_list_page(href_list[0], handler);
+//    href_list[0].url += '/fang5/';
+//    house_list_page(href_list[0], handler);
 
-//    href_list.forEach(function(href) {
-//      href.url += '/fang5/';
-//      house_list_page(href, handler);
-//    });
+//    for (var i = 0; i < href_list.length && i < 10; i++) {
+//      href_list[i].url += '/fang5/';
+//      house_list_page(href_list[i], handler);
+//    }
+
+    href_list.forEach(function(href) {
+      href.url += '/fang5/';
+      house_list_page(href, handler);
+    });
   });
 }
 
 function house_list_page(city, handler) {
+  u.log('intent url: ' + city.url);
   scraperjs.StaticScraper.create(city.url)
   .onStatusCode(function(statusCode, utils) {
     u.gLog('House-list page url: ' + utils.url);

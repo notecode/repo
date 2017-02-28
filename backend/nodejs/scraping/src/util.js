@@ -9,10 +9,10 @@ var colors = require('colors');
 var log = console.log;
 
 function gLog(t) {
-  log(t.green);
+  log(t.toString().green);
 }
 function rLog(t) {
-  log(t.red);
+  log(t.toString().red);
 }
 
 module.exports = {

@@ -34,9 +34,10 @@ class DB {
     }
 
     public function getCityList() {
-        $sql = 'SELECT city.id, city.name, city.py1, province.name AS prov_name '.
+        $sql = 'SELECT city.id, city.name, city.py1, province.name AS prov_name, city_house_price.house_price AS price '.
             'FROM city ' .
-            'INNER JOIN province ON city.in_province=province.id '.
+            'INNER JOIN province ON city.in_province=province.id ' .
+            'INNER JOIN city_house_price ON city.id=city_house_price.city_id ' .
             'ORDER BY py1 limit 10';
         //$sql = 'SELECT * FROM city ORDER BY py1;';
         $stmt = $this->pdo->prepare($sql);
@@ -49,7 +50,7 @@ class DB {
             if (!isset($dict[$idx])) {
                 $dict[$idx] = [];
             }
-            array_push($dict[$idx], array('id' => $r['id'], 'name' => $r['name'], 'province' => $r['prov_name']));
+            array_push($dict[$idx], array('id' => $r['id'], 'name' => $r['name'], 'province' => $r['prov_name'], 'house_price' => $r['price']));
         }
 
         return $dict;

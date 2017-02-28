@@ -16,4 +16,5 @@ scrape.start(url, function(city) {
 
 //mysql.foo();
 
+// for async sql connection, can not disconnect. or It fail.
 //mysql.dis_conn();

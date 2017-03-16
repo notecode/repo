@@ -1,0 +1,153 @@
+#!/bin/sh
+
+echo "~/.alias"
+
+# cd
+alias work="cd ~/workspace/ && ll"
+alias play="cd ~/play && ll"
+alias mg="cd ~/workspace/mygit && ll"
+alias hub="cd ~/github/ && ll"
+alias fl="cd ~/workspace/freelancer && ll"
+alias stone="cd ~/workspace/mygit/frontend/stone && ll"
+alias hot="cd ~/workspace/mygit/backend/nodejs/scraping && ll"
+
+git_dir="~/workspace/git"
+alias doc="cd ${git_dir}/doc && ll"
+alias idoc="cd ${git_dir}/doc/idoc && ll"
+alias rdoc="cd ${git_dir}/doc/rdoc && ll"
+alias ddoc="cd ${git_dir}/doc/ddoc && ll"
+alias dj="cd ${git_dir}/datajs && ll"
+alias wbs="cd ${git_dir}/wbs && ll"
+alias yapp="cd ${git_dir}/yapp && ll"
+alias rpc="cd ${git_dir}/wph_www_api && ll"
+alias oss="cd ${git_dir}/oss && ll"
+alias auto="cd ${git_dir}/test && ll"
+alias dop="cd ${git_dir}/devops/gwph.git.hooks && ll"
+
+# git
+alias st="git status"
+alias add="git add"
+alias addd="add ."
+alias ci="git commit"
+alias cia="git commit -a"
+alias pull="git pull"
+alias l="pull"
+alias l2="pull && pull prod master"
+alias l2d="pull && pull prod dev"
+alias push="git push"
+alias p="push"
+alias p2="push && push prod master:master"
+alias mr="git merge"
+alias log="git log"
+alias logv="git log --name-status"
+alias logg="git log --oneline --decorate --graph --all"
+alias logc="log -- ."
+alias logvc="logv -- ."
+alias tag="git tag"
+alias k="gitk"
+alias ka="gitk --all"
+alias cl="git clean"
+alias cln="cl -fn"
+alias cli="cl -i"
+alias clf="cl -f"
+alias cont="git rebase --continue"
+alias gc="git clone"
+
+alias push-prod="git push prod HEAD:dev"
+alias push-zt="git push zt-prod HEAD:dev"
+
+# 推到线上之前，在本地记一下推的是哪个commit
+push_log="~/assist/push-to-prod-log.txt"
+alias log_push="echo '--------' >> ${push_log} && date >> ${push_log} && logv -1 >> ${push_log}"
+alias plog="vi ${push_log}"
+
+alias gh="git help"
+alias dif="git difftool --diff-filter=M"
+alias difc="git difftool --cached"
+alias difp="dif HEAD^"
+alias co="git checkout"
+alias cob="co -"
+alias bran="git branch"
+alias b="bran"
+alias ba="b -a"
+alias remo="git remote -v"
+alias rmt="remo"
+alias blame="git blame"
+
+alias gp="gulp"
+alias gpm="gulp --site=m"
+
+alias mk="mkdir"
+alias g="grep"
+alias f="find"
+alias cls="clear"
+
+alias la="ls -allF"
+alias ll="ls -lF"
+alias mmv="mmv -v"
+
+alias vng="sudo vi /usr/local/nginx/conf/nginx.conf"
+alias rng="sudo nginx -s reload"
+
+alias o="open"
+alias oo="o ."
+alias v='/Applications/MacVim.app/Contents/MacOS//Vim -g'
+
+alias py="python"
+alias rgb="echo rgb: 199 237 204, hex: C7EDCC"
+alias slp="sudo shutdown -s now"
+
+alias vihosts="sudo vi /etc/hosts"
+alias vh="vihosts"
+alias vp="vi ~/.bash_profile"
+alias rp="source ~/.bash_profile"
+alias vv="vi ~/.vimrc"
+alias todo="vi ~/assist/todo.txt"
+alias acc="vi ~/assist/account.txt"
+alias vik="vi ~/assist/vik.txt"
+alias gk="vi ~/assist/geek.txt"
+alias vssh="vi ~/.ssh/config"
+alias note="vi ~/assist/notes.txt"
+alias free="vi ~/assist/free.txt"
+alias bs="vi ~/workspace/mygit/frontend/stone/vendor/bootstrap/css/bootstrap.css"
+alias fa="vi ~/workspace/mygit/frontend/stone/vendor/font-awesome/css/font-awesome.css"
+alias dist="cd ~/github/notecode.github.io/"
+
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+#alias ip='ifconfig | grep "inet 192"'
+alias ip='ifconfig | grep "inet 10.11"'
+# alias mmvh='echo $'\''\n'\''$'\''\t'\''$'\''\t'\''mmv -v \"from*\" \"to#1\"$'\''\n'\'''
+
+# 有时会在想敲"mv"时却敲了"rm"，导致可能无法挽回的损失。故禁用rm，创建了一个del(/usr/local/bin)文件link它
+alias rm="echo Do you indeed want to remove it? Use del"
+alias del="del -v"
+alias rename="mv -v"
+alias rn="react-native"
+alias rnr="rn run-ios"
+alias and="android"
+alias cod="cordova"
+alias plat="cod platform"
+alias plug="cod plugins"
+alias pman="plugman"
+alias phjs="phantomjs"
+
+alias show_hidden_files="defaults write com.apple.finder AppleShowAllFiles -boolean true;  killall Finder"
+alias hide_hidden_files="defaults write com.apple.finder AppleShowAllFiles -boolean false; killall Finder"
+
+alias mock="java -Dfile.encoding=UTF-8 -Dmockserver.logLevel=WARN -jar ~/devtools/mockserver-netty-3.10.4-jar-with-dependencies.jar -serverPort 2080 -proxyPort 2090"
+
+alias run-prod-test='curl -H "X-Test-App: chaoren" -H "X-Test-Key: notecode" http://autotest.xxtao.com/prod_functions_test.sh'
+alias run-send-mail='curl -H "X-Test-App: chaoren" -H "X-Test-Key: notecode" "http://autotest.xxtao.com/mail.sh?subject=test&content=hello"'
+alias dtags="del ~/.vimtags"
+
+
+alias js2="cd ~/.vim/ftplugin && sudo cp javascript2.vim javascript.vim && cd -"
+alias js4="cd ~/.vim/ftplugin && sudo cp javascript4.vim javascript.vim && cd -"
+
+al="~/.alias"
+alias val="vi ${al}" 
+alias ral=". ${al}"
+# backup it
+alias backme="cp ${al} ~/assist/alias"
+backme
+

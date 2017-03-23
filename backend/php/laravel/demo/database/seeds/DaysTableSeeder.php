@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class DaysTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(TaskTableSeeder::class);
-        $this->call(DaysTableSeeder::class);
+       	DB::table('days')->insert([
+       		'title' => 'Sunday'
+       	]); 
     }
 }

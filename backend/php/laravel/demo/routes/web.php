@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/hello', 'Hello@index');
 Route::get('/tasks', 'TaskController@index');
+Route::get('/users', 'UserController@index');

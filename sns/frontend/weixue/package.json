@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-file-include": "^1.0.0",
+    "gulp-sass": "^3.0.0"
+  },
+  "dependencies": {
+    "gulp-clean": "^0.3.2"
+  }
+}

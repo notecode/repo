@@ -23,7 +23,7 @@ function api_ajax_post(uri, data, cb, config) {
 // 第三方的jquery插件（比如上传图片），不能直接用$.ajax时，会用此方法。以给前端同学一个统一的回调方式
 function api_std_succ_callback(cb, json, date) {
   cb && cb.always && cb.always(json, date);
-  if ("1" == json.succ) {
+  if (1 == json.succ) {
     cb && cb.succ && cb.succ(json, date);
   } else {
     cb && cb.fail && cb.fail(json, date);

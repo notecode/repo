@@ -6,6 +6,7 @@ $(function() {
   api_ajax('/foo', {
     succ: function(json) {
       tlog(json.msg);
+      $('#foo').text(json.msg);
     }
   })
 })

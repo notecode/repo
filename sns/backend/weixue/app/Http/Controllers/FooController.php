@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 
 class FooController extends Controller
 {
-    //
     public function index()
     {
-        return "hello, I am foo.";
+        return ['succ' => 1, 'msg' => 'Foo is OK'];
     }
 }

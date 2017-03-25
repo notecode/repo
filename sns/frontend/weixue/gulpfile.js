@@ -21,7 +21,7 @@ gulp.task('vendor', function () {
 });
 
 gulp.task('pages', function () {
-	return gulp.src('./src/**/*.+(html|js)')
+	return gulp.src('./src/pages/**/*.+(html|js)')
         .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 });
@@ -31,11 +31,19 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./dist/css'))
         .pipe(connect.reload());
 });
+gulp.task('global-js', function () {
+	return gulp.src('./src/js/global.js')
+        .pipe(include({basepath: './src/js/', indent: true}))
+        .pipe(gulp.dest('dist/js/'))
+        .pipe(connect.reload());
+});
+
 
 gulp.task('watch', function() {
 	gulp.watch('./vendor/**/*', ['vendor']);
 	gulp.watch('./src/**/*.+(html|js)', ['pages']);
 	gulp.watch('./src/**/*.scss', ['sass']);
+	gulp.watch('./src/js/**/*', ['global-js']);
 });
 
 gulp.task('clean', function () {
@@ -43,5 +51,5 @@ gulp.task('clean', function () {
 	.pipe(clean());
 });
 
-gulp.task('all', ['vendor', 'pages', 'sass']);
+gulp.task('all', ['vendor', 'pages', 'sass', 'global-js']);
 gulp.task('default', ['connect', 'watch']);

@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/foo', 'FooController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

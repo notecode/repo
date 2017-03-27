@@ -181,6 +181,9 @@ return [
          * CORS
          */
         Barryvdh\Cors\ServiceProvider::class,
+
+        
+        App\Library\AwsS3\AwsS3ServiceProvider::class,
     ],
 
     /*
@@ -230,6 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'AwsS3' => App\Library\AwsS3\AwsS3Facade::class,
     ],
 
 ];

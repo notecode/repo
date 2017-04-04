@@ -9,3 +9,7 @@ $foo->test();
 
 $bar = new Song\Bar();
 $bar->test();
+
+$foo1 = new Song\Foo();
+$method = 'test';
+$foo1->{$method}();

@@ -9,3 +9,4 @@ class Foo
         echo 'foo::test', PHP_EOL;
     }
 }
+

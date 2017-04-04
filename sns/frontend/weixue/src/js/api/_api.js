@@ -9,7 +9,9 @@ var api = {
     var url = 'http://localhost:8000';
     tlog(url);
     return url;
-  })()
+  })(),
+
+  withToken: true
 }; 
 
 function api_ajax(uri, cb, config) {
@@ -34,6 +36,17 @@ function api_std_succ_callback(cb, json, date) {
 // cb: callback
 //
 function _api_ajax(method, uri, data, cb, ext, config) {
+  if (api.withToken) {
+    var token = localStorage.getItem('token');
+    if (token.length > 0) {
+      $.extend(ext, {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      });
+    }
+  }
+
   var url = api.url + uri;
   olog("[>" + method + "](" + uri + "): ", data);
   $.ajax(url, $.extend({
@@ -46,6 +59,13 @@ function _api_ajax(method, uri, data, cb, ext, config) {
     },
     success: function(json, status, xhr) {
       olog("[<resp](" + uri + "): ", json);
+      if (api.withToken) {
+        var xtoken = xhr.getResponseHeader('Authorization');
+        if (xtoken && xtoken.length > 0) {
+          localStorage.setItem('token', xtoken.replace('Bearer ', ''));
+        }
+      }
+
       api_std_succ_callback(cb, json, json.now);
     },
 

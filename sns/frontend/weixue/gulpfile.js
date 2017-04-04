@@ -9,6 +9,7 @@ var gulp = require('gulp'),
 
 gulp.task('connect', ['all'], function() {
 	connect.server({
+    host: 'notecode.com',
 		root: 'dist',
 		livereload: true
 	});

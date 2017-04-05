@@ -75,11 +75,13 @@ function _api_ajax(method, uri, data, cb, ext, config) {
         tlog(uri + ' 请求超时!');
       }
       var code = as_int(xhr.status);
+      var body = xhr.responseJSON;
       tlog("[!err!](" + uri + "): status: " + code + ", msg: " + thrown);
+      olog("body: ", body);
       cb && cb.always && cb.always();
 
       var errorCallback = cb.error || cb.fail;
-      errorCallback && errorCallback({msg:"连接失败"}) ;
+      errorCallback && errorCallback(body);
     }
   }, ext || {}));
 }

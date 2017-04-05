@@ -37,4 +37,23 @@ $(function() {
       }
     });
   });
+
+  $('#reg').click(function() {
+    var data = {
+      'name': 'song',
+      'email': '59763908@qq.com',
+      'password': 'songerv2',
+      'password_confirmation': 'songerv2'
+    };
+
+    api_ajax_post('/api/register', data, {
+      succ: function(json) {
+        if (json.token) {
+          localStorage.setItem('token', json.token);
+        }
+      },
+      fail: function(json) {
+      }
+    });
+  });
 })

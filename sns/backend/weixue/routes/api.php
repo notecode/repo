@@ -17,7 +17,8 @@ Route::get('/foo', function (Request $request) {
     return ['succ' => 1, 'msg' => 'api:foo'];
 });
 
-Route::post('/login', 'JWTAuthController@login');
+Route::post('/login', 'JWTAuth\JWTAuthController@login');
+Route::post('/register', 'JWTAuth\JWTRegisterController@register');
 
-Route::middleware('jwt.refresh')->get('/user', 'JWTAuthController@userProfile');
+Route::middleware('jwt.refresh')->get('/user', 'JWTAuth\JWTAuthController@userProfile');
 

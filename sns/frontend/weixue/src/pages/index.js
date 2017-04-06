@@ -10,6 +10,18 @@ $(function() {
     }
   });
 
+  api_ajax('/api/users', {
+    succ: function(json) {
+      var users = json.users;
+      var text = '';
+      for (var i = 0; i < users.length; i++) {
+        text += ('[' + users[i].id + ': ' + users[i].name + ']<br>');
+      }
+
+      $('#users').append('<p>' + text + '</p>');
+    }
+  });
+
   $('#login').click(function() {
     var data = {
       'email': 'songerwei_cn@qq.com',
@@ -29,7 +41,7 @@ $(function() {
   });
 
   $('#user').click(function() {
-    api_ajax('/api/user', {
+    api_ajax('/api/profile', {
       succ: function(json) {
         $('#profile').append('<p>' + json.name + '</p>');
       },

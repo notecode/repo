@@ -185,7 +185,8 @@ return [
 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         App\Library\AwsS3\AwsS3ServiceProvider::class,
-        App\Library\RongCloud\RongIMServiceProvider::class
+        App\Library\RongCloud\RongIMServiceProvider::class,
+        Hootlex\Friendships\FriendshipsServiceProvider::class,
     ],
 
     /*

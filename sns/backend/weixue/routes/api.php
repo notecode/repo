@@ -17,8 +17,12 @@ Route::get('/foo', function (Request $request) {
     return ['succ' => 1, 'msg' => 'api:foo'];
 });
 
+Route::get('/users', 'Publik\UsersController@all');
+
 Route::post('/login', 'JWTAuth\JWTAuthController@login');
+Route::middleware('jwt.refresh')->get('/profile', 'JWTAuth\JWTAuthController@myProfile');
+
 Route::post('/register', 'JWTAuth\JWTRegisterController@register');
 
-Route::middleware('jwt.refresh')->get('/user', 'JWTAuth\JWTAuthController@userProfile');
+
 

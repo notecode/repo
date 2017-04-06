@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use \App;
 
 class JWTRegisterController extends RegisterController
 {
@@ -20,6 +21,8 @@ class JWTRegisterController extends RegisterController
      */
     public function register(Request $request)
     {
+        // $rongIM = App::make('RongIM');
+
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));

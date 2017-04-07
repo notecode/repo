@@ -3,6 +3,8 @@
 // CREATED:  2017-03-25 23:06:37
  
 $(function() {
+  var theOtherId = 0;
+
   api_ajax('/api/foo', {
     succ: function(json) {
       tlog(json.msg);
@@ -16,6 +18,10 @@ $(function() {
       var text = '';
       for (var i = 0; i < users.length; i++) {
         text += ('[' + users[i].id + ': ' + users[i].name + ']<br>');
+
+        if (users[i].email === '59763908@qq.com') {
+          theOtherId = users[i].id;
+        }
       }
 
       $('#users').append('<p>' + text + '</p>');
@@ -63,6 +69,19 @@ $(function() {
         if (json.token) {
           localStorage.setItem('token', json.token);
         }
+      },
+      fail: function(json) {
+      }
+    });
+  });
+
+  $('#friend').click(function() {
+    var data = {
+      'recipient': theOtherId 
+    };
+
+    api_ajax_post('/api/befriend', data, {
+      succ: function(json) {
       },
       fail: function(json) {
       }

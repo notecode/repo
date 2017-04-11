@@ -38,7 +38,7 @@ function api_std_succ_callback(cb, json, date) {
 function _api_ajax(method, uri, data, cb, ext, config) {
   if (api.withToken) {
     var token = localStorage.getItem('token');
-    if (token.length > 0) {
+    if (token && token.length > 0) {
       $.extend(ext, {
         headers: {
           Authorization: 'Bearer ' + token

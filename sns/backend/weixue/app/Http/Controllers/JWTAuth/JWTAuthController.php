@@ -25,8 +25,11 @@ class JWTAuthController extends Controller
         }
 
         // all good so return the token
+        $user = JWTAuth::toUser($token);
         $succ = 1;
-        return response()->json(compact('succ', 'token'));
+        $profile = ["id" => $user->id, "name" => $user->name];
+
+        return response()->json(compact('succ', 'token', 'profile'));
     }
 
     public function myProfile(Request $request)
@@ -34,9 +37,8 @@ class JWTAuthController extends Controller
         $user = JWTAuth::parseToken()->authenticate();
 
         $succ = 1;
-        $id = $user->id;
-        $name = $user->name;
-        return response()->json(compact('succ', 'id', 'name'));
+        $profile = ["id" => $user->id, "name" => $user->name];
+        return response()->json(compact('succ', 'profile'));
     }
 
 }

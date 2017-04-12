@@ -21,6 +21,10 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar', 40)->after('name')->nullable();
+        });
     }
 
     /**

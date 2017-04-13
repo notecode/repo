@@ -12,9 +12,8 @@ $(function() {
     }
   });
 
-  api_ajax('/api/users', {
-    succ: function(json) {
-      var users = json.users;
+  api_ajax('/api/all-users', {
+    succ: function(users) {
       var text = '';
       for (var i = 0; i < users.length; i++) {
         text += ('[' + users[i].id + ': ' + users[i].name + ']<br>');

@@ -19,7 +19,8 @@ Route::get('/foo', function (Request $request) {
 
 // UsersController
 
-Route::get('/users', 'Publik\UsersController@all');
+Route::get('/all-users', 'Publik\UsersController@all');
+Route::get('/paging-users', 'Publik\UsersController@page');
 
 
 // JWTAuthController

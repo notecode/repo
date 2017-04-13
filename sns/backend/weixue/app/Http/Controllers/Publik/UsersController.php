@@ -10,8 +10,11 @@ class UsersController extends Controller
 {
     public function all(Request $request)
     {
-        $succ = 1;
-        $users = User::all();
-        return response()->json(compact('succ', 'users'));
+        return User::all();
+    }
+
+    public function page(Request $request)
+    {
+        return User::paginate($request->size);
     }
 }

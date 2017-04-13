@@ -44,7 +44,7 @@ class JWTRegisterController extends RegisterController
         }
 
         // all good so return the token
-        $succ = 1;
-        return response()->json(compact('succ', 'token'));
+        $profile = JWTAuth::toUser($token);
+        return response()->json(compact('token', 'profile'));
     }
 }

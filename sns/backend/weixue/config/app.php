@@ -187,6 +187,7 @@ return [
         App\Library\AwsS3\AwsS3ServiceProvider::class,
         App\Library\RongCloud\RongIMServiceProvider::class,
         Hootlex\Friendships\FriendshipsServiceProvider::class,
+        Toin0u\Geotools\GeotoolsServiceProvider::class,
     ],
 
     /*
@@ -239,6 +240,7 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'AwsS3' => App\Library\AwsS3\AwsS3Facade::class,
+        'Geotools' => Toin0u\Geotools\Facade\Geotools::class
     ],
 
 ];

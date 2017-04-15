@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/foo', function (Request $request) {
-    return ['succ' => 1, 'msg' => 'api:foo'];
-});
+Route::get('/foo', 'FooController@index');
+Route::get('/geo', 'FooController@geo');
+Route::get('/geo-my', 'FooController@geoMy');
 
 // UsersController
 

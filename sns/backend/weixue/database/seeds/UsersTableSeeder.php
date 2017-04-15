@@ -16,16 +16,20 @@ class UsersTableSeeder extends Seeder
             'name' => 'notecode',
             'avatar' => 'avatar.jpg',
             'email' => 'songerwei_cn@qq.com',
-            'password' => Hash::make('songerv2')
+            'password' => Hash::make('songerv2'),
+            'latitude' => 39.9891120584025,
+            'longitude' => 116.449490707394,
         ]);
 
         DB::table('users')->insert([
             'name' => 'song',
             'avatar' => 'avatar.jpg',
             'email' => '59763908@qq.com',
-            'password' => Hash::make('songerv2')
+            'password' => Hash::make('songerv2'),
+//            'latitude' => 39.908692,
+//            'longitude' => 116.397477,
         ]);
 
-        factory(App\User::class, 100)->create();
+        factory(App\User::class, 10)->create();
     }
 }

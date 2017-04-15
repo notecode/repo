@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Publik;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Geotools;
 
 class UsersController extends Controller
 {

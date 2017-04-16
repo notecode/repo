@@ -17,8 +17,8 @@ class UsersTableSeeder extends Seeder
             'avatar' => 'avatar.jpg',
             'email' => 'songerwei_cn@qq.com',
             'password' => Hash::make('songerv2'),
-            'latitude' => 39.9891120584025,
-            'longitude' => 116.449490707394,
+            'lat' => 39.9891120584025,
+            'long' => 116.449490707394,
         ]);
 
         DB::table('users')->insert([
@@ -26,8 +26,8 @@ class UsersTableSeeder extends Seeder
             'avatar' => 'avatar.jpg',
             'email' => '59763908@qq.com',
             'password' => Hash::make('songerv2'),
-//            'latitude' => 39.908692,
-//            'longitude' => 116.397477,
+//            'lat' => 39.908692,
+//            'long' => 116.397477,
         ]);
 
         factory(App\User::class, 10)->create();

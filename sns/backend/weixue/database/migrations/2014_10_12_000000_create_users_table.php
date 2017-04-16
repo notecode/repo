@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
 
         Schema::table('users', function (Blueprint $table) {
             $table->string('avatar', 40)->after('name')->nullable();
-            $table->double('latitude')->after('password')->nullable();
-            $table->double('longitude')->after('latitude')->nullable();
+            $table->double('lat')->after('password')->nullable();
+            $table->double('long')->after('lat')->nullable();
         });
     }
 

@@ -19,8 +19,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'latitude' => $faker->latitude,
-        'longitude' => $faker->longitude,
+        'lat' => $faker->latitude,
+        'long' => $faker->longitude,
         'remember_token' => str_random(10),
     ];
 });

@@ -16,10 +16,12 @@ use Illuminate\Http\Request;
 Route::get('/foo', 'FooController@index');
 Route::get('/geo', 'FooController@geo');
 Route::get('/geo-my', 'FooController@geoMy');
+Route::get('/foo-sort', 'FooController@sort');
 
 // UsersController
 
 Route::get('/all-users', 'Publik\UsersController@all');
+Route::get('/nearby-users', 'Publik\UsersController@nearby');
 Route::get('/paging-users', 'Publik\UsersController@page');
 
 

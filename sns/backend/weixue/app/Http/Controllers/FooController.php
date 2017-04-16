@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Geotools;
+use Illuminate\Support\Collection;
 
 class FooController extends Controller
 {
@@ -12,7 +13,8 @@ class FooController extends Controller
         return ['succ' => 1, 'msg' => 'Foo is OK'];
     }
 
-    public function geo() {
+    public function geo()
+    {
         $coordA   = Geotools::coordinate([48.8234055, 2.3072664]);
         $coordB   = Geotools::coordinate([43.296482, 5.36978]);
         $distance = Geotools::distance()->setFrom($coordA)->setTo($coordB);
@@ -23,7 +25,8 @@ class FooController extends Controller
         printf("%s\n",$distance->in('ft')->flat()); // 2162619.7519272
     }
 
-    public function geoMy() {
+    public function geoMy()
+    {
         $my = [39.9891120584025, 116.449490707394];
         $tam = [39.908692, 116.397477];
 
@@ -32,5 +35,11 @@ class FooController extends Controller
         $distance = Geotools::distance()->setFrom($coordA)->setTo($coordB);
 
         printf("我到天安门的距离: %s\n",$distance->in('km')->flat());
+    }
+
+    public function sort() {
+        $arr = new Collection([1, 4, 5, 2]);
+        $sorted = $arr->sort();
+        return $sorted->values();
     }
 }

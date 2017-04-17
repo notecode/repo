@@ -30,6 +30,6 @@ class UsersTableSeeder extends Seeder
 //            'long' => 116.397477,
         ]);
 
-        factory(App\User::class, 10)->create();
+        factory(App\User::class, 100)->create();
     }
 }

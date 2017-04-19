@@ -18,6 +18,9 @@ Route::get('/geo', 'FooController@geo');
 Route::get('/geo-my', 'FooController@geoMy');
 Route::get('/foo-sort', 'FooController@sort');
 
+// PostsController
+Route::get('/posts', 'Publik\PostsController@index');
+
 // UsersController
 
 Route::get('/all-users', 'Publik\UsersController@all');

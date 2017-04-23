@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    @@include('top/main.html')
+  </head>
+  <body>
+    <div id="grid-page" class="grid-page">
+        <div class="line">
+          <div class="cells">
+            <p class="cell"></p>
+            <p class="cell"></p>
+            <p class="cell"></p>
+            <p class="cell"></p>
+          </div>
+          <div class="bar"></div>
+        </div>
+    </div>
+    @@include('bottom/main.html', {"js": "grid.js"})
+  </body>
+</html>

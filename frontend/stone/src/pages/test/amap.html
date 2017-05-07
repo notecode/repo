@@ -14,12 +14,39 @@
     <script type="text/javascript">
         var map, provinces, redPoint, bluePoint, canvas, colorFlag = 0,started;
         create();
+        //bezier();
+
+        function bezier(canvas) {
+            if (!canvas) {
+                canvas = document.createElement('canvas');
+                document.body.append(canvas);
+                canvas.width = 1000;
+                canvas.height = 1000;
+            }
+
+            var ctx = canvas.getContext("2d");
+            ctx.setLineDash([6, 4]);
+            ctx.lineWidth = 1;
+
+            var pt1 = [200, 200];
+            var c1 = [300, 250];
+            var c2 = [350, 300];
+            var pt2 = [400, 400];
+            
+            ctx.beginPath();
+            ctx.moveTo(pt1[0], pt1[1]);
+            ctx.bezierCurveTo(c1[0], c1[1], c2[0], c2[1], pt2[0], pt2[1]);
+
+            ctx.strokeStyle = '#F6A623';
+            ctx.stroke();
+        }
 
         function create() {
             map = new AMap.Map('container', {
                 center: [116.306206, 39.975468],
                 zoom:3
             });
+
             map.plugin(['AMap.CustomLayer'], function() {
                 canvas = document.createElement('canvas');
                 canvas.width = map.getSize().width;
@@ -30,15 +57,7 @@
                 });
 
                 cus.render = function() {
-                    var ctx = canvas.getContext("2d");
-                    ctx.setLineDash([3, 5]);
-
-                    ctx.beginPath();
-                    ctx.moveTo(20,20);
-                    ctx.bezierCurveTo(20,100,200,100,200,20);
-
-                    ctx.strokeStyle = '#F6A623';
-                    ctx.stroke();
+                    bezier(canvas);
                 }
 
                 cus.setMap(map);

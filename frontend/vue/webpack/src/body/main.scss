@@ -1,0 +1,28 @@
+#tetris {
+    .pane {
+        display: inline-block;
+        border: 1px solid black;
+
+        .row {
+            .cell {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background-color: green;
+                color: green;
+                border: 1px solid black;
+                visibility: hidden; 
+
+                &.cell1 {
+                    visibility: visible; 
+                }
+            }
+        }
+    }
+
+    button {
+        width: 70px;
+        height: 40px;
+        font-size: 15px;
+    }
+}

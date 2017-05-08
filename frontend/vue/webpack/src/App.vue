@@ -9,7 +9,7 @@
 <script>
 import VHeader from './Header.vue';
 import VFooter from './Footer.vue';
-import VBody from './Body.vue';
+import VBody from './body/main.vue';
 
 export default {
     name: 'app',

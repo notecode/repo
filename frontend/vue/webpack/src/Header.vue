@@ -1,5 +1,5 @@
 <template>
-  <h1>This is header</h1>
+  <h1>Tetris</h1>
 </template>
 
 <script>

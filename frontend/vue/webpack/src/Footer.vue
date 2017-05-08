@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    <h1>This is footer</h1>
+      Learn vuejs demo. notecode@2017/5/8
   </div>
 </template>
 
@@ -11,7 +11,7 @@ module.exports = {
 </script>
 
 <style scoped> 
-h1 {
-  border: 1px solid black;
+div {
+    text-align: right;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    <h1>This is the Footer</h1>
+    <h1>This is footer</h1>
   </div>
 </template>
 
@@ -10,6 +10,8 @@ module.exports = {
 }
 </script>
 
-<style scoped>
-    
+<style scoped> 
+h1 {
+  border: 1px solid black;
+}
 </style>

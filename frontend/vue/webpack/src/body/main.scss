@@ -1,5 +1,5 @@
 #tetris {
-    .pane {
+    .pane, .pre-pane {
         display: inline-block;
         border: 1px solid black;
 
@@ -13,13 +13,21 @@
                 border: 1px solid black;
                 visibility: hidden; 
 
-                &.cell1 {
+                &.light {
                     visibility: visible; 
                 }
             }
         }
     }
 
+    .op-area {
+        display: inline-block;
+
+        .pre-pane {
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
     button {
         width: 70px;
         height: 40px;

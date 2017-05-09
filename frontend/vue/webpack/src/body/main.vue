@@ -15,7 +15,7 @@
                     </div> 
                 </div>
             </div>
-            <button v-on:click="start">start</button>
+            <button v-on:click.once="start">start</button>
         </div>
     </div>
 </template>

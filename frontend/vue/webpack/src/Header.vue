@@ -1,5 +1,7 @@
 <template>
-  <h1>Tetris</h1>
+  <div>
+    <h1>Tetris<img src="./notecode.jpg" alt=""></h1>
+  </div>
 </template>
 
 <script>
@@ -12,5 +14,11 @@ module.exports = {
 h1 {
   color: blue;
   border: 1px dashed #000;
+}
+
+img {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
 }
 </style>

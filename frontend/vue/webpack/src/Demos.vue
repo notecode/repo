@@ -11,6 +11,7 @@
 <script>
 
 import foo from './FooModal.vue';
+import Vue from 'vue';
 
 export default {
   created: function() {
@@ -23,7 +24,7 @@ export default {
       this.$toasted.show('hello billo', {duration: 1000});
     },
     showError: function() {
-      this.$toasted.error('error', {duration: 1000});
+      Vue.toasted.error('error', {duration: 1000});
     },
     showModal: function() {
       this.$modal.show('hello-world');

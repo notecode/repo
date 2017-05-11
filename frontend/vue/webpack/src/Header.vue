@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Tetris<img src="./notecode.jpg" alt=""></h1>
+    <h1>Tetris<img src="./assets/notecode.jpg" alt=""></h1>
   </div>
 </template>
 

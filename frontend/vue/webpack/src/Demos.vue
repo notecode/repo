@@ -27,7 +27,7 @@ export default {
       Vue.toasted.error('error', {duration: 1000});
     },
     showModal: function() {
-      this.$modal.show('hello-world');
+      this.$modal.show('hello');
     }
   }
 }

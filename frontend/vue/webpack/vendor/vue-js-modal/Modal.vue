@@ -12,7 +12,7 @@
              :class="modalClass"
              :style="modalStyle"
              @mousedown.stop>
-          <span @click="toggle(false)" class="x">x</span>
+          <span v-if="x" @click="toggle(false)" :class="xClass">x</span>
           <slot/>
           <resizer v-if="resizable"
                    :min-width="minWidth"
@@ -82,6 +82,14 @@
       pivotY: {
         type: Number,
         default: 0.5
+      },
+      x: {
+        type: Boolean,
+        default: false,
+      },
+      xClasses: {
+        type: [String, Array],
+        default: '',
       }
     },
     components: {
@@ -183,6 +191,10 @@
           width: this.modal.width + 'px',
           height: this.modal.height + 'px'
         }
+      },
+
+      xClass () {
+        return ['x', this.xClasses]
       }
     },
     methods: {
@@ -353,7 +365,7 @@
     position: absolute;
     right: 9px;
     top: 2px;
-    color: red;
+    color: #333333;
     font-size: 20px;
     cursor: pointer;
 

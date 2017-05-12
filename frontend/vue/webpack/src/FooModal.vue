@@ -1,5 +1,5 @@
 <template>
-  <modal name="hello" :width="200" :height="130" @opened="onOpen" @closed="onClose" >
+  <modal name="hello" :width="500" :height="300" classes="mc" :yyx="true" xClasses="xx" @opened="onOpen" @closed="onClose" >
     <div class="main">
       {{content}}
     </div>
@@ -24,11 +24,26 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.mc {
+  //background-color: blue !important;
+}
+
+.xx {
+  color: blue !important;
+}
+
+</style>
+
 <style lang="scss" scoped>
 .main {
-  padding: 10px;
+  padding: 30px 10px;
   width: 100%;
   height: 100%;
   overflow-y: auto;
+}
+
+.my-close {
+  color: blue;
 }
 </style>

@@ -6,24 +6,14 @@ $(function() {
 
     var left = $('#left-bar > span');
 
-    $('#main-table').on('scroll', function() {
-        var top = $(this).scrollTop();
-        tlog(top);
+    var onClick = function() {
+        console.log('clicked');
+    }
 
-        left.css('top', -top+'px');
+    $('.trigger').on('click', function() {
+        console.log('-');
+        $('.group').off('click', '.trigger2', onClick).on('click', '.trigger2', onClick);
     });
 
-    $('#triggee').toggle();
-
-    $('#trigger').click(function() {
-        $('#triggee').toggle();
-    });
-
-    $('#triggee').show(function() {
-        tlog('triggee is shown');
-    });
-    $('#triggee').hide(function() {
-        tlog('triggee is hidden');
-    });
 });
 

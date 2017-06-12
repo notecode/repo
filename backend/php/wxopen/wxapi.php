@@ -33,8 +33,6 @@ class WxApi
 
         $this->log->info("wx open api base: {$this->apiBase}");
         $this->accessToken = $this->getAccessToken();
-
-        // todo: 本地存储之，并防止过期引起的失败
     }
 
     function isOK() 
@@ -50,49 +48,27 @@ class WxApi
             ],
         ]);
 
-        // 需要存一张 我们的id和openid的映射关系表，
+        // todo: 需要存一张 我们的id和openid的映射关系表，
         if ($this->isRespOK($resp)) {
+            $list = $resp->data->openid;
+            $post = [];
+            foreach ($list as $v) {
+                $post[] = [
+                    'openid' => $v,
+                    'lang' => 'zh_CN',
+                ];
+            }
 
+            // https://api.weixin.qq.com/cgi-bin/user/info/batchget?access_token=ACCESS_TOKEN
+            $resp2 = $this->req('POST', 'user/info/batchget', [
+                'query' => [
+                    'access_token' => $this->accessToken
+                ],
+                'json' => [
+                    'user_list' => $post,
+                ],
+            ]);
         }
-    }
-
-    function sendTplMsg($toWhom, $data) {
-        // https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN
-        $body = [
-            'touser' => $toWhom,
-            'template_id' => '5HsnDcHllU0jMBwMRTDWOyv0JxN_L5k_Qzea6N28mcM',
-            'data' => [
-                'first' => [
-                    'value' => '你好',
-                ],
-                'tradeDateTime' => [
-                    'value' => 'time',
-                ],
-                'orderType' => [
-                    'value' => 'type',
-                ],
-                'customerInfo' => [
-                    'value' => 'zhangsan',
-                ],
-                'orderItemName' => [
-                    'value' => 'some name',
-                ],
-                'orderItemData' => [
-                    'value' => '100',
-                ],
-                'remark' => [
-                    'value' => '欢迎下次光临',
-                ],
-            ],
-        ];
-        $resp = $this->req('POST', 'message/template/send', [
-            'query' => [
-                'access_token' => $this->accessToken
-            ],
-            'body' => json_encode($body, JSON_UNESCAPED_UNICODE),
-        ]);
-
-        return $resp;
     }
 
     /*
@@ -139,9 +115,48 @@ class WxApi
         }
     }
 
+    function sendNewOrderMsg($to, $data) {
+        $body = [
+            'touser' => $to,
+            'template_id' => 'gP8-tpFFxPtoYoexDyXTdyUihq8i1PhWMsg9h0u9YVA',
+            'data' => [
+                'first' => [
+                    'value' => 'hello',
+                ],
+                'keyword1' => [
+                    'value' => 'foo',
+                    'color' => '#00ff00',
+                ],
+                'keyword2' => [
+                    'value' => 'bar',
+                ],
+                'remark' => [
+                    'value' => 'bye',
+                ],
+            ],
+        ];
+
+        return $this->sendTplMsg($body);
+    }
+
+    function sendServiceExpiredMsg($to, $data) {
+        // todo
+    }
+
     //
     // --- below are privates ---
     //
+    private function sendTplMsg($body) {
+        // https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN
+        $resp = $this->req('POST', 'message/template/send', [
+            'query' => [
+                'access_token' => $this->accessToken
+            ],
+            'body' => json_encode($body, JSON_UNESCAPED_UNICODE),
+        ]);
+
+        return $resp;
+    }
 
     private function genRole($zmoa_roles)
     {
@@ -209,5 +224,4 @@ class WxApi
 	{
 		return (!isset($resp->errcode) || 0 == $resp->errcode);
 	}
-
 }

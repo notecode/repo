@@ -7,7 +7,7 @@
 var api = {
   url: (function() {
     var url = make_api_origin() + "/index.php";
-    tlog(url);
+//    tlog(url);
     return url;
   })()
 }; 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>清理cookie，因为微信难清很</title>
+
+<style>
+.frame {
+    border: 1px solid blue;
+    margin: 10px;
+}
+
+</style>
+
+</head>
+<body>
+    
+    <div class='frame'>
+        <h2>Before clear:</h2>
+        <p id='before'></p>
+    </div>
+
+    <div class='frame'>
+        <h2>After clear:</h2>
+        <p id='after'></p>
+    </div>
+
+<script>
+
+function clear(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function show_cookie(id) {
+    var elem = document.getElementById(id);
+    elem.textContent = document.cookie;
+}
+
+show_cookie('before');
+
+clear('new_user');
+clear('token');
+
+show_cookie('after');
+
+</script>
+</body>
+</html>
